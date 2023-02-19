@@ -1,0 +1,60 @@
+header {
+    height: 90px;
+    background-color: white;
+    border-bottom: 2px gray solid;
+}
+.navbar {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar img {
+    height: 100%;
+    max-height: 70px;
+    display: flex;
+    justify-content: flex-start;
+}
+#BusinessName {
+    font-size: 24pt;
+    font-family: 'Labrada', serif;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+header ul {
+    list-style: none;
+}
+.nav-options {
+    display: flex;
+    justify-content: right;
+    vertical-align: middle;
+    border-collapse: collapse;
+    padding: 1em 2em;
+}
+
+body {
+    background-color: hsl(0, 0%, 95%);
+}
+.Intro_Paragraph {
+    margin: 5% 10%;
+}
+#Image-container {
+    display: flex;
+    justify-content: center;
+}
+#Image-container img {
+    display: flex;
+    max-width: 80%;
+    justify-content: center;
+    margin: 15px;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
+}
