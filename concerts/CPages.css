@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    width: 100%;
+    min-height: 100px;
 }
 .logo {
     width: 80px;
@@ -68,6 +68,30 @@ audio {
     margin-left: 5%;
 }
 
+table {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px;
+    border: black solid 2px;
+    border-collapse: collapse;
+}
+legend {
+    margin: 5px;
+    max-width: 600px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: #00203a solid 3px;
+}
+td, th {
+    border: black solid 1px;
+}
+td>br {
+    background-color: white;
+}
+td:hover, th:hover {
+    background-color: hsl(210, 2%, 75%);
+}
+
 #AboutText {
     font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
     font-size: 1.1rem;
@@ -82,6 +106,19 @@ audio {
     color: antiquewhite;
 }
 
+#ConcertIntroText {
+    margin-left: 0.8em;
+    padding: 0 0.3em;
+    max-width: 1000px;
+}
+#EDITEDtext {
+    color: hsl(0, 0%, 25%);
+}
+
+form {
+    padding: 30px 3px;
+}
+
 a:link {
     color: white;
     text-decoration: none;
@@ -93,4 +130,12 @@ a:visited {
 .ConcertText:hover {
     background-color: #00203a;
     color: #F47920;
+}
+
+#GoogleForm:link {
+    color: #00203a;
+    text-decoration: underline;
+}
+#GoogleForm:hover {
+    color: hsl(207, 100%, 28%);
 }
