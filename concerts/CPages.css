@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    min-height: 100px;
+    /* min-height: 100px; */
 }
 .logo {
     width: 80px;
@@ -61,6 +61,29 @@ header{
     border-width: 0.1rem;
     border-style: solid;
     border-color: #ececec;
+}
+
+main h2 {
+    margin-left: 15px;
+}
+main {
+    min-height: 50px;
+}
+.VideoButton {
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+}
+.VideoButton span {
+    color: black;
+}
+.VideoButton:hover {
+    background-color: hsl(216, 2%, 45%);
+}
+.AudioPlayer {
+    padding-left: -5px;
 }
 
 audio {
