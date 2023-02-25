@@ -192,4 +192,6 @@ a:link, a:visited {
 }
 .DatabaseList li {
     padding: 3px;
+    border: black solid 1px;
+    border-collapse: collapse;
 }
