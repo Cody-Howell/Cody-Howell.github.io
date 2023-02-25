@@ -50,18 +50,6 @@ header{
     background-color: #003057;
 }
 
-.ConcertText{
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
-    margin-left: 0.8em;
-    margin-top: 0.5rem;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
-    border-radius: 0.5em;
-    border-width: 0.1rem;
-    border-style: solid;
-    border-color: #ececec;
-}
-
 main h2 {
     margin-left: 15px;
 }
@@ -149,17 +137,40 @@ footer {
     padding: 0 0.3em;
 }
 
-.IndexConcertBox:link, .IndexConcertBox:visited {
-    color: black;
-    background-color: black;
+.ConcertText{
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    margin-left: 0.8em;
+    margin-top: 0.5rem;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    border-radius: 0.5em;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-color: #ececec;
+    background-color: lightgray;
 }
+
+.IndexConcertBox:link, .IndexConcertBox:visited {
+    display: block;
+    color: black;
+}
+.DatabaseButton:link, .DatabaseButton:visited {
+    color: black;
+    background-color: var(--secondary-color-050);
+    margin: 10px;
+    padding: 5px;
+    border: black solid 2px;
+    border-radius: 10px;
+}
+.DatabaseButton:hover {
+    background-color: var(--secondary-color-100);
+}   
 a:link, a:visited {
     color: white;
     text-decoration: none;
 }
 .ConcertText:hover {
     background-color: var(--gray-color-050);
-    color: var(--primary-blue-050);
 }
 
 #GoogleForm:link {
@@ -168,4 +179,14 @@ a:link, a:visited {
 }
 #GoogleForm:hover {
     color: hsl(207, 100%, 28%);
+}
+
+.DatabaseList {
+    list-style-type: none;
+}
+.DatabaseList li:nth-child(even) {
+    background-color: lightgray;
+}
+.DatabaseList li {
+    padding: 3px;
 }
