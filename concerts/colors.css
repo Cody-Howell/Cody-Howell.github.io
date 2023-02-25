@@ -1,9 +1,9 @@
 :root {
     --primary-blue-050: #003057;
-    --primary-blue-900: hsl(207, 100%, 80%);
+    --primary-blue-900: hsl(207, 100%, 90%);
 
     --primary-orange-050: #F47920;
-    --primary-orange-900: hsl(25, 91%, 80%);
+    --primary-orange-900: hsl(25, 91%, 90%);
 
     --secondary-color-050: #FAA634;
     --secondary-color-100: hsl(35, 95%, 40%);

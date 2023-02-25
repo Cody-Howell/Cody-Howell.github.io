@@ -184,8 +184,11 @@ a:link, a:visited {
 .DatabaseList {
     list-style-type: none;
 }
-.DatabaseList li:nth-child(even) {
-    background-color: lightgray;
+.DatabaseList .NE {
+    background-color: var(--primary-orange-900);
+}
+.DatabaseList .TC {
+    background-color: var(--primary-blue-900);
 }
 .DatabaseList li {
     padding: 3px;
