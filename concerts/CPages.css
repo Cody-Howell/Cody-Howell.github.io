@@ -103,7 +103,7 @@ table {
 }
 legend {
     margin: 5px;
-    max-width: 600px;
+    max-width: 590px;
     font-size: 1.2rem;
     text-align: center;
     border: #00203a solid 3px;
@@ -116,6 +116,9 @@ td>br {
 }
 #Calendar td:hover, #Calendar th:hover {
     background-color: hsl(210, 2%, 75%);
+}
+.DataRow {
+    height: 2.5em;
 }
 
 #AboutText {
