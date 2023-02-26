@@ -85,6 +85,7 @@ table {
     margin: 5px;
     border: black solid 2px;
     border-collapse: collapse;
+    border-radius: 3px;
 }
 #Calendar {
     max-width: 600px;
@@ -195,4 +196,11 @@ a:link, a:visited {
     padding: 4px;
     border: black solid 1px;
     border-collapse: collapse;
+}
+
+.NotesBox {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    background-color: hsl(0, 62%, 81%);
 }
