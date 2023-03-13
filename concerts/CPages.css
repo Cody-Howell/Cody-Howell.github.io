@@ -212,7 +212,6 @@ a:link, a:visited {
         height: 20%;
     }
     #Calendar {
-        width: 90%;
-        margin: 0 5px;
+        zoom: 80%;
     }
 }
