@@ -157,6 +157,11 @@ footer {
     display: block;
     color: black;
 }
+.CorruptConcertBox:link, .CorruptConcertBox:visited {
+    display: block;
+    color: darkred;
+}
+
 .DatabaseButton:link, .DatabaseButton:visited {
     color: black;
     background-color: var(--secondary-color-050);
