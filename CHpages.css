@@ -1,17 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
+body {
+  background-color: lightgray;
 }
-header {
-    padding: 1.2em;
-    background-color: lightsteelblue;
-    font-size: 1.2rem;
-}
+
 main {
-    background-image: linear-gradient(lightgray, white);
-    font-size: 1.2rem;
-    padding: 3px;
+  background-color: white;
 }
-img {
-    width: 100%;
+
+:link, :visited {
+  text-decoration: none;
+  color: black;
 }
+
+/*# sourceMappingURL=CHpages.css.map */
