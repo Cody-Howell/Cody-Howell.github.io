@@ -217,6 +217,16 @@ a:link, a:visited {
     margin: 10px;
     background-color: hsl(239, 63%, 81%);
 }
+.PerformerBox table {
+    display: flex;
+    justify-content: space-evenly;
+}
+.PerformerBox table td {
+    align-self: flex-start;
+}
+.PerformerBox table tr {
+    display: flex;
+}
 
 @media (width <= 450){
     .navbar {
