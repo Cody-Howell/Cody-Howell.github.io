@@ -88,6 +88,7 @@ table {
     border: black solid 2px;
     border-collapse: collapse;
     border-radius: 3px;
+    background-color: white;
 }
 #Calendar {
     max-width: 600px;
@@ -123,14 +124,11 @@ td>br {
     display: inline-block;
     margin: 0;
 }
-.rotate-90 {
-    transform: rotate(-90deg);
-}
 .ShrinkBox .HideableInformation {
     display: none;
 }
-.UnhiddenInformation {
-    display: static;
+.RotatedArrow {
+    transform: rotate(-90deg);
 }
 
 #AboutText {
