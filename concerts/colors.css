@@ -1,20 +1,51 @@
 :root {
+    --primary-blue-000: #003057;
     --primary-blue-050: hsl(207, 100%, 5%);
     --primary-blue-100: hsl(207, 100%, 10%);
     --primary-blue-200: hsl(207, 100%, 20%);
     --primary-blue-300: hsl(207, 100%, 30%);
     --primary-blue-400: hsl(207, 100%, 40%);
     --primary-blue-500: hsl(207, 100%, 50%);
+    --primary-blue-600: hsl(207, 100%, 60%);
+    --primary-blue-700: hsl(207, 100%, 70%);
+    --primary-blue-800: hsl(207, 100%, 80%);
     --primary-blue-900: hsl(207, 100%, 90%);
 
-    --primary-orange-050: #F47920;
+    --primary-orange-000: #F47920;
+    --primary-orange-050: hsl(25, 91%, 5%);
+    --primary-orange-100: hsl(25, 91%, 10%);
+    --primary-orange-200: hsl(25, 91%, 20%);
+    --primary-orange-300: hsl(25, 91%, 30%);
+    --primary-orange-400: hsl(25, 91%, 40%);
+    --primary-orange-500: hsl(25, 91%, 50%);
+    --primary-orange-600: hsl(25, 91%, 60%);
+    --primary-orange-700: hsl(25, 91%, 70%);
+    --primary-orange-800: hsl(25, 91%, 80%);
     --primary-orange-900: hsl(25, 91%, 90%);
 
-    --secondary-color-050: #FAA634;
-    --secondary-color-100: hsl(35, 95%, 40%);
+    --secondary-color-000: #FAA634;
+    --secondary-color-050: hsl(35, 95%, 5%);
+    --secondary-color-100: hsl(35, 95%, 10%);
+    --secondary-color-200: hsl(35, 95%, 20%);
+    --secondary-color-300: hsl(35, 95%, 30%);
+    --secondary-color-400: hsl(35, 95%, 40%);
+    --secondary-color-500: hsl(35, 95%, 50%);
+    --secondary-color-600: hsl(35, 95%, 60%);
+    --secondary-color-700: hsl(35, 95%, 70%);
+    --secondary-color-800: hsl(35, 95%, 80%);
+    --secondary-color-900: hsl(35, 95%, 90%);
 
 
 
-    --gray-color-050: #939598;
+    --gray-color-000: #939598;
+    --gray-color-050: hsl(216, 2%, 5%);
+    --gray-color-100: hsl(216, 2%, 10%);
+    --gray-color-200: hsl(216, 2%, 20%);
+    --gray-color-300: hsl(216, 2%, 30%);
+    --gray-color-400: hsl(216, 2%, 40%);
+    --gray-color-500: hsl(216, 2%, 50%);
+    --gray-color-600: hsl(216, 2%, 60%);
     --gray-color-700: hsl(216, 2%, 70%);
+    --gray-color-800: hsl(216, 2%, 80%);
+    --gray-color-900: hsl(216, 2%, 90%);
 }

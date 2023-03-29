@@ -165,21 +165,21 @@ footer {
 
 .DatabaseButton:link, .DatabaseButton:visited {
     color: black;
-    background-color: var(--secondary-color-050);
+    background-color: var(--secondary-color-500);
     margin: 10px;
     padding: 5px;
     border: black solid 2px;
     border-radius: 10px;
 }
 .DatabaseButton:hover {
-    background-color: var(--secondary-color-100);
+    background-color: var(--secondary-color-400);
 }   
 a:link, a:visited {
     color: white;
     text-decoration: none;
 }
 .ConcertText:hover {
-    background-color: var(--gray-color-050);
+    background-color: var(--gray-color-000);
 }
 
 #GoogleForm:link {
