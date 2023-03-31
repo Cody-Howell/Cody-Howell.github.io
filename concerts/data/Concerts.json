@@ -1,0 +1,108 @@
+const ConcertDatabase = `[
+{   "title": "2023-03-29&30 Chamber Concerts", 
+    "date": {
+        "year": 2023,
+        "month": 3,
+        "day": [29,30]
+    },
+    "index": {
+        "tracks": 15,
+        "runtime": {
+            "hours": 1,
+            "minutes": 23, 
+            "seconds": 56
+        },
+        "video": {
+            "exists": false,
+            "link": "#",
+        },
+    },
+    "notes": "This concert is currently undergoing a remix. This will be gone when completed.",
+    "days": [
+    [  {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 3, 
+            "seconds": 6
+        }},   
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+    ],[  {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 3, 
+            "seconds": 6
+        }},   
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+        {"songTitle": "[Song Title]",
+        "composer": "[Composer]",
+        "time": {
+            "hours": 0,
+            "minutes": 2, 
+            "seconds": 56
+        }},
+    ]],
+}
+]`;
