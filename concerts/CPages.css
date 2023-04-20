@@ -237,6 +237,7 @@ a:link, a:visited {
     background-color: var(--gray-color-700);
     border: black solid 2px;
     border-radius: 3px;
+    cursor: pointer;
 }
 .ShrinkBox .DownArrow {
     display: inline-block;
