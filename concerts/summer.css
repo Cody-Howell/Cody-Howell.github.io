@@ -24,7 +24,8 @@ p {
 .ScrollBox {
     border: 2px solid black;
     width: 90%;
-    height: 150px;
+    min-height: 20px;
+    max-height: 150px;
     overflow-y: auto;
 }
 .ScrollBox h2 {
