@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    margin: 0;
+}
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    background-color: #003057;
+
+}
+h1 {
+    color: #F47920;
+    width: 300px;
+    margin-top: 60px;
+}
+p {
+    margin: 10px;
+}
+
+.ScrollBox {
+    border: 2px solid black;
+    width: 90%;
+    height: 150px;
+    overflow-y: auto;
+}
+.ScrollBox h2 {
+    margin-left: 15px;
+}
+.ScrollBox>ul>li, .ScrollBox a {
+    color: black;
+}
