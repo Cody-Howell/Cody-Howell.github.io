@@ -1,0 +1,47 @@
+:link, :visited {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    padding: 5px;
+    background-color: #176196;
+    nav {
+        padding-left: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .NavList {
+            img {
+                padding-right: 200%;
+                display: none;
+                scale: 2.2;
+                cursor: pointer;
+            }
+            position: relative;
+            display: flex;
+            align-items: center;
+            ul {
+                display: none;
+                background-color: #176196;
+                list-style-type: none;
+                li {
+                    background-color: white;
+                    padding: 3px;
+                    margin: 2px;
+                    border: 2px solid black;
+                    border-radius: 5px;
+                }
+                li:hover {
+                    background-color: #4e1796;
+                    color: white;
+                }
+            }
+            .show {
+                display: block;
+                position: relative;
+
+            }
+        }
+    }
+}
