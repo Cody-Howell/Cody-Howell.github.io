@@ -191,7 +191,7 @@ var musicData = [
     {
       'title': 'BC',
       'file': 'BC.mp3',
-      'next': [ 'BB', 'BC', 'BD' ],
+      'next': [ 'BB', 'BD' ],
       'lengthToNext': 18016,
       'start': false
     },
