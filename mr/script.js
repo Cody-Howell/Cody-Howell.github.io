@@ -1,5 +1,6 @@
 var currentTitle, currentNum, nextTitle, nextNum, nextSelectedNum;
 var audio = [];
+var start = [];
 
 (function() {
 	'use strict';
@@ -20,7 +21,7 @@ function startup() {
   prepareAudio();
 
   currentNum = -1;
-  nextNum = 0;
+  nextNum = start[Math.floor(Math.random() * start.length)];
   nextTitle = musicData[nextNum].title;
   nextSelectedNum = -1;
   document.getElementsByClassName('table-row-container')[nextNum].children[0].children[0].classList.add('next-cell');
@@ -63,10 +64,14 @@ function prepareAudio() {
   for(let i = 0; i < musicData.length; i++) {
     audio.push(new Audio('assets/audio-clips/' + musicData[i].file));
     audio[i].addEventListener('play', function() {
-      setTimeout(playNext, (musicData[i].lengthToNext) - 5);
+      setTimeout(playNext, (musicData[i].lengthToNext) - 10);
     });
+    if (musicData[i].start) {
+      start.push(i);
+    }
   }
   console.log('  EisDEBUG: prepareAudio() completed; audio.length is ' + audio.length);
+  console.log('  EisDEBUG: prepareAudio() completed; start.length is ' + start.length);
 }
 
 function playNext() {
