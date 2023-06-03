@@ -233,7 +233,7 @@ var musicData = [
     {
       'title': 'BI',
       'file': 'BI.mp3',
-      'next': [ 'AA', 'BG' ],
+      'next': [ 'AB' ],
       'lengthToNext': 12933,
       'start': false
     }

@@ -67,8 +67,7 @@ html {
   }
 
 .BlueBox {
-    width: 30%;
-    height: 200px;
+    width: 70%;
     padding: 10px;
     margin: 10px;
     background-color: hsl(239, 63%, 81%);
@@ -79,4 +78,7 @@ html {
     padding: 10px;
     margin: 10px;
     background-color: hsl(0, 62%, 81%);
+}
+.LeftColumn {
+  width: 30%;
 }
