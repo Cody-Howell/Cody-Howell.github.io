@@ -238,3 +238,5 @@ var musicData = [
       'start': false
     }
   ];
+
+  export { musicData }

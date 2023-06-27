@@ -1,84 +1,90 @@
 html {
-    height: 100%;
-  }
-  
-  body {
-    height: 100%;
-    width: 100%;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    padding: 1px;
-  }
-  
-  #main-container {
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: space-around;
-  }
-  
-  #table-container {
-    border: solid 1px;
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: space-around;
-  }
-  
-  .table-row-container {
-    padding: 2px;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    align-content: space-around;
-  }
-  
-  .table-cells-container {
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: space-around;
-  }
-  
-  .table-cell {
-    flex-grow: 1;
-    border: solid 1px;
-    padding: 5px;
-    margin: 3px;
-    min-width: 50px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .next-cell {
-    background-color: #ffff70
-  }
-  
-  .current-cell {
-    background-color: #70ff70
-  }
-  
-  .end-cell {
-    background-color: #ff7070
-  }
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 5px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 1px;
+  flex-direction: column;
+}
+
+#main-container {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+
+#table-container {
+  border: solid 1px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+  height: 90%;
+  width: 70%;
+}
+
+.table-row-container {
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  align-content: space-around;
+}
+
+.table-cells-container {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+}
+
+.table-cell {
+  flex-grow: 1;
+  border: solid 1px;
+  padding: 5px;
+  margin: 3px;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.next-cell {
+  background-color: #ffff70
+}
+
+.current-cell {
+  background-color: #70ff70
+}
+
+.end-cell {
+  background-color: #ff7070
+}
 
 .BlueBox {
-    width: 70%;
-    padding: 10px;
-    margin: 10px;
-    background-color: hsl(239, 63%, 81%);
+  width: 97%;
+  padding: 10px;
+  margin: 10px;
+  background-color: hsl(239, 63%, 81%);
 }
 .RedBox {
-    width: 30%;
-    height: 200px;
-    padding: 10px;
-    margin: 10px;
-    background-color: hsl(0, 62%, 81%);
+  width: 30%;
+  height: 200px;
+  padding: 10px;
+  margin: 10px;
+  background-color: hsl(0, 62%, 81%);
 }
 .LeftColumn {
-  width: 30%;
+  width: 100%;
 }

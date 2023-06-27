@@ -6,28 +6,34 @@
   <meta charset="UTF-8">
 
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="assets/music-data.js"></script>
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/vis-network@latest/standalone/umd/vis-network.min.js"></script>
+  <script src="script.js" type="module"></script>
 </head>
-  
+
 <body>
-  <div class="LeftColumn"><p class="BlueBox">Last Updated: 5/18/23<br>
-  V 0.8 - 34 audio clips (missing AW on my first pass), a complete loop. Correctly chooses random start nodes. Files have an extra ~0.5 seconds of tail to reduce silence.<br>
-  V 0.8.1 - Adjusted weights for Sea Shanty due to always getting caught in their loops, added link to sheet music and image of web for sharing.</p>
-  <a href="https://drive.google.com/file/d/1BBCfiarsNiKqArSHNq9TrsYOeQ-0pcAA/view?usp=sharing" style="margin-left: 10px;">Link to sheet music</a>
-  <img src="Map Web 2 colorized.png" style="width: 90%; padding-top: 10px;">
+  <div class="LeftColumn">
+    <p class="BlueBox">Last Updated: 6/27/23<br>
+      V 0.8 - 34 audio clips (missing AW on my first pass), a complete loop. Correctly chooses random start nodes. Files
+      have an extra ~0.5 seconds of tail to reduce silence.<br>
+      V 0.8.1 - Adjusted nodes for Sea Shanty due to always getting caught in their loops, added link to sheet music
+      and image of web for sharing.<br>
+      V 0.9.0 - Created Vis Framework nodes, adjusted codebase to simply show the debug, moved items around.<br>
+      V 0.9.4 - Framework now changes colors, correctly identifies start nodes and puts them back after color changes, and removed detail container. <br>
+      (Future) V 1.0.0 - Make a dropdown and adjust file structure to allow for easy switching between webs. 
+    </p>
+    <a href="https://drive.google.com/file/d/1BBCfiarsNiKqArSHNq9TrsYOeQ-0pcAA/view?usp=sharing" style="margin-left:10px">Link to sheet music</a>
   </div>
   <div id="main-container">
     <div id="controls-container">
       Loading Javascript...
     </div>
     <div id="table-container">
-      
+
     </div>
     <div id="results-container">
-      
+
     </div>
   </div>
 </body>
-  
+
 </html>
