@@ -1,12 +1,31 @@
-var currentTitle, currentNum, nextTitle, nextNum, nextSelectedNum, prevNum;
-var audio = [];
+var currentTitle, currentNum, nextTitle, nextNum, nextSelectedNum, prevNum, nodes, edges, musicData;
+var webChoice = 0;
+var audio = []; 
 var start = [];
-var nodes;
-var edges;
+var timeouts = [];
 
+import {names} from "./assets/names.js"
 
-import {musicData} from "./assets/music-data.js"
+var selectElement = document.getElementById("nameSelector");
+for (var i = 0; i < names.length; i++) {
+  var option = document.createElement("option");
+  option.value = i;  // The value is the index
+  option.text = names[i].name;  // The displayed text is the name
+  selectElement.appendChild(option);
+}
 
+selectElement.addEventListener("change", function() {
+  webChoice = this.value;
+  console.log("Selected ID:", webChoice);
+  audio.forEach((audioTrack) => {
+    if (!audioTrack.paused) {
+      audioTrack.pause();
+      audioTrack.currentTime = 0;  // Reset the audio to the start
+      clearTimeout(timeouts[i]);
+    }
+  });
+  startup();
+});
 (function() {
 	'use strict';
 
@@ -19,9 +38,19 @@ import {musicData} from "./assets/music-data.js"
 	}, 100);
 })();
 
-function startup() {
+async function startup() {
   console.log('EisDEBUG: startup() started.');
 
+  audio = [];
+  start = [];
+
+
+
+  var filepath = `./assets/${names[webChoice].name}/music-data.json`;
+  await fetch(filepath)
+  .then(response => response.json())
+  .then(data => musicData = data);
+  
   loadTable();
   prepareAudio();
 
@@ -33,7 +62,10 @@ function startup() {
   
   document.getElementById('controls-container').innerHTML =
           `<button id="begin-btn">Begin</button>`;
-  document.querySelector('#begin-btn').addEventListener('click', playNext);
+  document.querySelector('#begin-btn').addEventListener('click', function(){
+    document.getElementById('controls-container').innerHTML =``;
+    playNext();
+  });
 
   console.log('EisDEBUG: startup() completed.');
 }
@@ -80,9 +112,6 @@ function loadTable() {
       });
   });
 
-  // console.log("Node Array:", nodeArray);
-  // console.log("Edge Array:", edgeArray);
-
   nodes = new vis.DataSet(nodeArray);
   edges = new vis.DataSet(edgeArray);
   
@@ -105,9 +134,13 @@ function loadTable() {
 function prepareAudio() {
   console.log('  EisDEBUG: prepareAudio() started; musicData.length is ' + musicData.length);
   for(let i = 0; i < musicData.length; i++) {
-    audio.push(new Audio('assets/audio-clips/' + musicData[i].file));
+    audio.push(new Audio(`assets/${names[webChoice].name}/audio-clips/` + musicData[i].file));
     audio[i].addEventListener('play', function() {
-      setTimeout(playNext, (musicData[i].lengthToNext) - 10); //Arbitrary number to reduce silence
+      if (timeouts[i]) {
+        clearTimeout(timeouts[i]);
+      }
+      // Set a new timeout and store its ID
+      timeouts[i] = setTimeout(playNext, (musicData[i].lengthToNext) - 10); // Arbitrary number to reduce silence
     });
     if (musicData[i].start) {
       start.push(i);
@@ -186,8 +219,8 @@ function playNext() {
       }
       prevNum = currentNum;
       
-      nodes.update({id: currentNum, color: '#5e71c4'}); 
       nodes.update({id: nextNum, color: '#e0d679'});
+      nodes.update({id: currentNum, color: '#5e71c4'}); 
       
     }
   }

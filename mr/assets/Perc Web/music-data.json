@@ -1,0 +1,58 @@
+[
+  {
+      "title": "GA",
+      "file": "GA.mp3",
+      "next": [ "GB" ],
+      "lengthToNext": 12933,
+      "start": true
+  },
+  {
+      "title": "GB",
+      "file": "GB.mp3",
+      "next": [ "GC" ],
+      "lengthToNext": 12833,
+      "start": false
+  },
+  {
+      "title": "GC",
+      "file": "GC.mp3",
+      "next": [ "GD" ],
+      "lengthToNext": 12878,
+      "start": false
+  },
+  {
+      "title": "GD",
+      "file": "GD.mp3",
+      "next": [ "GE" ],
+      "lengthToNext": 14561,
+      "start": false
+  },
+  {
+      "title": "GE",
+      "file": "GE.mp3",
+      "next": [ "GF" ],
+      "lengthToNext": 25857,
+      "start": true
+  },
+  {
+      "title": "GF",
+      "file": "GF.mp3",
+      "next": [ "GG" ],
+      "lengthToNext": 17536,
+      "start": false
+  },
+  {
+      "title": "GG",
+      "file": "GG.mp3",
+      "next": [ "GH" ],
+      "lengthToNext": 14334,
+      "start": false
+  },
+  {
+      "title": "GH",
+      "file": "GH.mp3",
+      "next": [ "GA" ],
+      "lengthToNext": 12721,
+      "start": false
+  }
+]
