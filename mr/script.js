@@ -63,7 +63,7 @@ async function startup() {
   document.getElementById('controls-container').innerHTML =
           `<button id="begin-btn">Begin</button>`;
   document.querySelector('#begin-btn').addEventListener('click', function(){
-    document.getElementById('controls-container').innerHTML =``;
+    document.getElementById('controls-container').innerHTML =`<p id="details-box">${names[webChoice].info}</p>`;
     playNext();
   });
 

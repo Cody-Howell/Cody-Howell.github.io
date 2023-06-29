@@ -72,6 +72,10 @@ body {
   background-color: #ff7070
 }
 
+#details-box {
+  margin: 2px;
+}
+
 .BlueBox {
   width: 80%;
   height: 70%;

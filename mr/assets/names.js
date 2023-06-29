@@ -1,6 +1,7 @@
 const names = [
-    {name: 'Perc Web'},
-    {name: 'Web 2'}
+    {name: 'Web 1', info: `Inital web I created. I'm happy about where it began, but the ratio of stuff I like is maybe 5:1, dislike-like.`},
+    {name: 'Web 2', info: `Second web I created, solo. I like a lot more of the nodes, maybe a 4:1 like-dislike. `},
+    {name: 'Web 3', info: `Newest web, or Percussion web. Currently being built.`}
 ];
 
 export {names}
