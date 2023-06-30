@@ -7,12 +7,15 @@
 
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://unpkg.com/vis-network@latest/standalone/umd/vis-network.min.js"></script>
-  <script src="script.js" type="module"></script>
+  <script src="./script.js" type="module"></script>
 </head>
 
 <body>
   <div class="TopLeft">
     <p class="BlueBox">Last Updated: 6/29/23<br>
+      (Future) V 1.7.0 - Implement adjustable weights, rewrite Web 1, rewrite all JSON's.. again.<br>
+      V 1.5.0 - Implemented Requests, strings that traverse the web. Box checked verfies the web intends. Debug mode included (checkbox off). 
+      Adjusted right column. Moved audioPrep function inside Begin button to force first audio to be loaded. <br>
       V 1.2.0 - Added a stop button. Changed layout substantially. Added a whole bunch of extra info. Implemented Played info. Implemented Weights.
       Implemented a progress bar per clip. Random Seeds implemented. Enabled hover. Scaled nodes. <br>
       V 1.0.2 - Added details after beginning a playthrough. Implemented first web, redid audio for webs 1 and 3. <br>
@@ -37,8 +40,15 @@
   </div>
   <div id="results">
     <a href="https://drive.google.com/drive/folders/1LQNI6AASQ5ndLPA9zIyGUy-Z8frtHyxu?usp=sharing">Link to sheet music</a>
+    <h2>Request</h2>
+    <p>Write a space-separated set of nodes, check the box if you want to follow the network, and it will play them for you.</p>
+    <textarea id="stringRequest" style="height: 50px;"></textarea>
+    <input type="checkbox" id="myCheckbox" checked="checked">
+    <label for="myCheckbox">Verify</label>
+    <button id="textButton">Submit</button>
+    <p id="VerificationStatus"></p>
     <h1>Played: </h1>
-    <p></p>
+    <p id="Played"></p>
   </div>
   <div id="current">
     <h2>Being Played: </h2>

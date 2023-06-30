@@ -1,9 +1,10 @@
-var currentTitle, currentNum, nextTitle, nextNum, nextSelectedNum, nodes, edges, musicData, playedString;
+var currentTitle, currentNum, nextTitle, nextNum, nextSelectedNum, nodes, edges, musicData, playedString, userNum;
 var prevNum = -1;
 var webChoice = 0;
 var audio = []; 
 var start = [];
 var timeouts = [];
+var userAudio = [];
 
 import {names} from "./assets/names.js"
 
@@ -14,18 +15,59 @@ for (var i = 0; i < names.length; i++) {
   option.text = names[i].name;  // The displayed text is the name
   selectElement.appendChild(option);
 }
-
 selectElement.addEventListener("change", function() {
   webChoice = this.value;
   console.log("SilDEBUG: Selected Web ID is ", webChoice);
   stopAudio();
 });
 
-(function() {
-	'use strict';
 
+
+var submitText = document.querySelector("#textButton");
+submitText.addEventListener('click', function() {
+  var string = document.querySelector("#stringRequest").value;
+  var verify = document.querySelector("#myCheckbox").checked;
+  console.log(`SilDEBUG: Clicked - ${string}, ${verify}`);
+  userNum = 0;
+  
+  var userConfirmation = document.querySelector("#VerificationStatus");
+
+  if (verify) {
+    var followsPath = verifySequence(musicData, string);
+    console.log(musicData);
+    console.log(string);
+
+    if (followsPath) {
+      userConfirmation.innerHTML = `True! Press Begin.`;
+      userConfirmation.style = 'color: green';
+
+      let titles = string.split(" ");
+      for (let i = 0; i < titles.length; i++) {
+        let index = musicData.findIndex(song => song.title === titles[i]);
+        userAudio.push(index);
+      }
+    } else {
+      userConfirmation.innerHTML = `False! Try again.`;
+      userConfirmation.style = 'color: maroon';
+    }
+  } else {
+    userConfirmation.innerHTML = `Debug activated. Press Begin.`;
+    userConfirmation.style = 'color: black';
+
+    let titles = string.split(" ");
+    for (let i = 0; i < titles.length; i++) {
+      let index = musicData.findIndex(song => song.title === titles[i]);
+      userAudio.push(index);
+    }
+  }
+  
+});
+
+(function() {
+  'use strict';
+  
 	let stateCheck = setInterval(() => {
-		if (document.readyState === 'complete') {
+    if (document.readyState === 'complete') {
       clearInterval(stateCheck);
       console.log('EisDEBUG: Start main js');
       startup();
@@ -35,33 +77,35 @@ selectElement.addEventListener("change", function() {
 
 async function startup() {
   console.log('EisDEBUG: startup() started.');
-
+  
   audio = [];
   start = [];
   playedString = "";
-
-
+  
+  var placeholderText = document.querySelector("#stringRequest");
+  placeholderText.placeholder = names[webChoice].author_route;
+  placeholderText.value = names[webChoice].author_route;
+  
   var filepath = `./assets/${names[webChoice].name}/music-data.json`;
   await fetch(filepath)
   .then(response => response.json())
   .then(data => musicData = data);
   
   loadTable();
-  prepareAudio();
-
+  
   currentNum = -1;
   nextNum = start[Math.floor(Math.random() * start.length)];
   nextTitle = musicData[nextNum].title;
   nextSelectedNum = -1;
   updateRightColumn(nextTitle, 'N/A', musicData[nextNum].artist, []);
-
+  
   
   document.getElementById('controls-container').innerHTML =
-          `<button id="begin-btn">Begin</button>\n<p id="details-box">${names[webChoice].info}</p>`;
+  `<button id="begin-btn">Begin</button>\n<p id="details-box">${names[webChoice].info}</p>`;
   document.querySelector('#begin-btn').addEventListener('click', function(){
     document.getElementById('controls-container').innerHTML =`<button id="stop-btn">Stop</button>\n<p id="details-box">${names[webChoice].info}</p>`;
     document.querySelector('#stop-btn').addEventListener('click', stopAudio);
-    playNext();
+    prepareAudio();
   });
 
   console.log('EisDEBUG: startup() completed.');
@@ -165,77 +209,115 @@ function prepareAudio() {
   for(let i = 0; i < musicData.length; i++) {
     audio.push(new Audio(`assets/${names[webChoice].name}/audio-clips/` + musicData[i].file));
   }
+
+  audio[nextNum].load();
+
   console.log('  EisDEBUG: prepareAudio() completed; audio.length is ' + audio.length);
   console.log('  EisDEBUG: prepareAudio() completed; start.length is ' + start.length);
+
+  waitForAudioLoad(audio[nextNum], 3000)
+  .then(function() {
+    console.log('Audio file is loaded and ready to play.');
+    playNext();
+  });
+  
 }
 
 function playNext() {
   console.log('  EisDEBUG: playNext(); nextNum is ' + nextNum);
   
-  
-  if(nextNum === -1) {
-    console.log('  EisDEBUG: song ended.');
-    nextNum = 0;
-    nextTitle = musicData[nextNum].title;
-    nextSelectedNum = -1;
-  } else {
-    audio[nextNum].play();
-    console.log('    EisDEBUG: playing track ' + nextNum);
+  if (userAudio[userNum] !== undefined) {
+    audio[userAudio[userNum]].play();
+    userNum++;
+    nextNum = userAudio[userNum];
+    if (nextNum === undefined) {nextNum = -1;}
+    if (nextNum === -1) {nextTitle = "N/A";}
+    else {
+      nextTitle = musicData[nextNum].title;
+    }
+    currentNum = userAudio[userNum-1];
+    currentTitle = musicData[currentNum].title;
     
-    currentTitle = nextTitle;
-    currentNum = nextNum;
     timeouts.push(setTimeout(playNext, musicData[currentNum].lengthToNext));
-
-    simulateProgress(musicData[currentNum].lengthToNext);
     
-    if(musicData[nextNum].next.length === 0) {
-      console.log('  EisDEBUG: no next song.');
-      nextNum = -1;
-    } else {
-      // choose next
-      nextSelectedNum = weightedRandomIndex(musicData[currentNum].next);
-      nextTitle = musicData[currentNum].next[nextSelectedNum].name;
-      
-      for(let i = 0; i < musicData.length; i++) {
-        // console.log(`      EisDEBUG: musicData[${i}].title is ${musicData[i].title}`);
-        if(musicData[i].title == nextTitle) {
-          // console.log(`    EisDEBUG: found that musicData[${i}].title is ${musicData[i].title} and matches nextTitle`);
-          nextNum = i;
-          i = musicData.length;
-        }
-      }
-      
-      if(nextNum === currentNum) {
-        console.log('    EisDEBUG: track repeats');
-      } else {
-        audio[nextNum].load();
-      }
-      console.log(`    EisDEBUG: currentNum is ${currentNum}, currentTitle is ${currentTitle}, ` +
-      `nextNum is ${nextNum}, nextTitle is ${nextTitle}, prevNum is ${prevNum}, and nextSelectedNum is ${nextSelectedNum}`);
-      
-      if (prevNum > -1){
-        var prevColor;
-        switch(musicData[prevNum].start) {
-          case true:
-                  prevColor = "#47d16c";
-                  break;
-              default:
-                  prevColor = "#DDDDDD";
-                  break;
-        }
-        nodes.update({id: prevNum, color: prevColor});
-      }
-      prevNum = currentNum;
-      
-      nodes.update({id: nextNum, color: '#e0d679'});
-      nodes.update({id: currentNum, color: '#5e71c4'}); 
+    simulateProgress(musicData[currentNum].lengthToNext);
 
-      updateRightColumn(currentTitle, nextTitle, musicData[currentNum].artist, musicData[currentNum].next);
-      updatePlayString(currentTitle);
+    if(nextNum !== -1) {
+      audio[nextNum].load();
+    }
+
+  } else {
+  
+    if(nextNum === -1) {
+      console.log('  EisDEBUG: song ended.');
+      nextNum = 0;
+      nextTitle = musicData[nextNum].title;
+      nextSelectedNum = -1;
+    } else {
+      audio[nextNum].play();
+      console.log('    EisDEBUG: playing track ' + nextNum);
       
+      currentTitle = nextTitle;
+      currentNum = nextNum;
+      timeouts.push(setTimeout(playNext, musicData[currentNum].lengthToNext));
+
+      simulateProgress(musicData[currentNum].lengthToNext);
+      
+      if(musicData[nextNum].next.length === 0) {
+        console.log('  EisDEBUG: no next song.');
+        nextNum = -1;
+      } else {
+        // choose next
+        nextSelectedNum = weightedRandomIndex(musicData[currentNum].next);
+        nextTitle = musicData[currentNum].next[nextSelectedNum].name;
+        
+        for(let i = 0; i < musicData.length; i++) {
+          // console.log(`      EisDEBUG: musicData[${i}].title is ${musicData[i].title}`);
+          if(musicData[i].title == nextTitle) {
+            // console.log(`    EisDEBUG: found that musicData[${i}].title is ${musicData[i].title} and matches nextTitle`);
+            nextNum = i;
+            i = musicData.length;
+          }
+        }
+        
+        if(nextNum === currentNum) {
+          console.log('    EisDEBUG: track repeats');
+        } else {
+          audio[nextNum].load();
+        }
+      }
     }
   }
+        console.log(`    EisDEBUG: currentNum is ${currentNum}, currentTitle is ${currentTitle}, ` +
+        `nextNum is ${nextNum}, nextTitle is ${nextTitle}, prevNum is ${prevNum}, and nextSelectedNum is ${nextSelectedNum}`);
+        
+        if (prevNum > -1){
+          var prevColor;
+          switch(musicData[prevNum].start) {
+            case true:
+                    prevColor = "#47d16c";
+                    break;
+                default:
+                    prevColor = "#DDDDDD";
+                    break;
+          }
+          nodes.update({id: prevNum, color: prevColor});
+        }
+        prevNum = currentNum;
+        
+        if (nextTitle !== "N/A") {
+          musicData.findIndex(obj => obj.title === nextTitle);
+          nodes.update({id: nextNum, color: '#e0d679'});
+        }
+        nodes.update({id: currentNum, color: '#5e71c4'}); 
+
+        updateRightColumn(currentTitle, nextTitle, musicData[currentNum].artist, musicData[currentNum].next);
+        updatePlayString(currentTitle);
+        
 }
+
+
+// Functions to adjust things, not key functionality
 
 function updateRightColumn(current, next, artist, nextList) {
   var currentNode = document.querySelector("#current .largeBold");
@@ -274,7 +356,7 @@ function updateRightColumn(current, next, artist, nextList) {
 }
 
 function updatePlayString(current) {
-  var playNode = document.querySelector("#results p");
+  var playNode = document.querySelector("#Played");
 
   playedString += current + ", ";
 
@@ -292,8 +374,13 @@ function stopAudio() {
   timeouts.forEach((e, i) => {
     clearTimeout(timeouts[i]);
   });
+
+  var userConfirmation = document.querySelector("#VerificationStatus");
+  userConfirmation.innerHTML = "";
+
   timeouts = [];
   audio = [];
+  userAudio = [];
   prevNum = -1;
   startup();
 };
@@ -336,4 +423,42 @@ function weightedRandomIndex(arr) {
 function secondsToMS(num){
   let returnValue = num / 1000;
   return `${returnValue} s`
+}
+
+function verifySequence(web, string) {
+  let titles = string.split(' ');
+  
+  for (let i = 0; i < titles.length - 1; i++) {
+      let currentTitle = titles[i];
+      let nextTitle = titles[i+1];
+      let currentObj = web.find(obj => obj.title === currentTitle);
+      
+      if (!currentObj) {
+          console.log("Title not found in the array: " + currentTitle);
+          return false;
+      }
+      
+      let nextObjExists = currentObj.next.some(n => n.name === nextTitle);
+      if (!nextObjExists) {
+          console.log("Title: " + nextTitle + " is not in the next array of " + currentTitle);
+          return false;
+      }
+  }
+  return true;
+}
+
+function waitForAudioLoad(audioElement, timeout) {
+  return new Promise(function(resolve, reject) {
+    var intervalId = setInterval(function() {
+      if (audioElement.readyState === 4) {
+        clearInterval(intervalId);
+        resolve();
+      }
+    }, 100); // Polling interval of 100ms
+
+    setTimeout(function() {
+      clearInterval(intervalId);
+      reject(new Error('Timeout: Audio file loading took too long.'));
+    }, timeout); // Timeout in milliseconds
+  });
 }

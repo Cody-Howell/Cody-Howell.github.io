@@ -66,8 +66,8 @@
       "artist": "Cody Howell",
       "file": "AG.mp3",
       "next": [ 
-        {"name": "AH", "weight": 1}, 
-        {"name": "AX", "weight": 3}
+        {"name": "AH", "weight": 3}, 
+        {"name": "AX", "weight": 1}
       ],
       "lengthToNext": 20029,
       "start": false
