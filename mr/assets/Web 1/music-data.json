@@ -1,139 +1,217 @@
 [
     {
       "title": "A",
+      "artist": "Cody Howell",
       "file": "A.mp3",
-      "next": [ "B", "E" ],
+      "next": [ 
+        {"name": "B", "weight": 3}, 
+        {"name": "E", "weight": 2}
+      ],
       "lengthToNext": 15056,
       "start": true
     },
     {
       "title": "B",
+      "artist": "Cody Howell",
       "file": "B.mp3",
-      "next": [ "C", "D" ],
+      "next": [ 
+        {"name": "C", "weight": 1}, 
+        {"name": "D", "weight": 1}
+      ],
       "lengthToNext": 14969,
       "start": false
     },
     {
       "title": "C",
+      "artist": "Cody Howell",
       "file": "C.mp3",
-      "next": [ "K" ],
+      "next": [ 
+        {"name": "K", "weight": 1} 
+      ],
       "lengthToNext": 14984,
       "start": false
     },
     {
       "title": "D",
+      "artist": "Cody Howell",
       "file": "D.mp3",
-      "next": [ "J" ],
+      "next": [ 
+        {"name": "J", "weight": 1}
+      ],
       "lengthToNext": 15000,
       "start": false
     },
     {
       "title": "E",
+      "artist": "Cody Howell",
       "file": "E.mp3",
-      "next": [ "F", "H", "I" ],
+      "next": [ 
+        {"name": "F", "weight": 2}, 
+        {"name": "H", "weight": 2}, 
+        {"name": "I", "weight": 1}
+      ],
       "lengthToNext": 14994,
       "start": false
     },
     {
       "title": "F",
+      "artist": "Cody Howell",
       "file": "F.mp3",
-      "next": [ "G", "M" ],
+      "next": [ 
+        {"name": "G", "weight": 1}, 
+        {"name": "M", "weight": 1}
+      ],
       "lengthToNext": 14998,
       "start": false
     },
     {
       "title": "G",
+      "artist": "Cody Howell",
       "file": "G.mp3",
-      "next": [ "B", "L" ],
+      "next": [ 
+        {"name": "B", "weight": 1}, 
+        {"name": "L", "weight": 2}
+      ],
       "lengthToNext": 14972,
       "start": false
     },
     {
       "title": "H",
+      "artist": "Cody Howell",
       "file": "H.mp3",
-      "next": [ "B", "G", "M" ],
+      "next": [ 
+        {"name": "B", "weight": 1}, 
+        {"name": "G", "weight": 3},
+        {"name": "M", "weight": 2}
+      ],
       "lengthToNext": 14962,
       "start": false
     },
     {
       "title": "I",
+      "artist": "Cody Howell",
       "file": "I.mp3",
-      "next": [ "B", "G", "M" ],
+      "next": [ 
+        {"name": "B", "weight": 1}, 
+        {"name": "G", "weight": 3}, 
+        {"name": "M", "weight": 2}
+      ],
       "lengthToNext": 14989,
       "start": false
     },
     {
       "title": "J",
+      "artist": "Cody Howell",
       "file": "J.mp3",
-      "next": [ "E", "L" ],
+      "next": [ 
+        {"name": "E", "weight": 2}, 
+        {"name": "L", "weight": 3}
+      ],
       "lengthToNext": 14931,
       "start": false
     },
     {
       "title": "K",
+      "artist": "Cody Howell",
       "file": "K.mp3",
-      "next": [ "E", "L" ],
+      "next": [ 
+        {"name": "E", "weight": 2}, 
+        {"name": "L", "weight": 3}
+      ],
       "lengthToNext": 15003,
       "start": false
     },
     {
       "title": "L",
+      "artist": "Cody Howell",
       "file": "L.mp3",
-      "next": [ "N" ],
+      "next": [ 
+        {"name": "N", "weight": 1}
+      ],
       "lengthToNext": 15005,
       "start": false
     },
     {
       "title": "M",
+      "artist": "Cody Howell",
       "file": "M.mp3",
-      "next": [ "N" ],
+      "next": [ 
+        {"name": "N", "weight": 1}
+      ],
       "lengthToNext": 7537,
       "start": false
     },
     {
       "title": "N",
+      "artist": "Cody Howell",
       "file": "N.mp3",
-      "next": [ "O", "P", "Q" ],
+      "next": [ 
+        {"name": "O", "weight": 1}, 
+        {"name": "P", "weight": 1}, 
+        {"name": "Q", "weight": 2}
+      ],
       "lengthToNext": 19959,
       "start": false
     },
     {
       "title": "O",
+      "artist": "Cody Howell",
       "file": "O.mp3",
-      "next": [ "P", "R", "S" ],
+      "next": [ 
+        {"name": "P", "weight": 1}, 
+        {"name": "R", "weight": 2}, 
+        {"name": "S", "weight": 3}
+      ],
       "lengthToNext": 10000,
       "start": false
     },
     {
       "title": "P",
+      "artist": "Cody Howell",
       "file": "P.mp3",
-      "next": [ "O", "R", "S" ],
+      "next": [ 
+        {"name": "O", "weight": 1}, 
+        {"name": "R", "weight": 1}, 
+        {"name": "S", "weight": 1}
+      ],
       "lengthToNext": 10036,
       "start": false
     },
     {
       "title": "Q",
+      "artist": "Cody Howell",
       "file": "Q.mp3",
-      "next": [ "R", "S" ],
+      "next": [ 
+        {"name": "R", "weight": 2}, 
+        {"name": "S", "weight": 3}
+      ],
       "lengthToNext": 9967,
       "start": false
     },
     {
       "title": "R",
+      "artist": "Cody Howell",
       "file": "R.mp3",
-      "next": [ "U", "V" ],
+      "next": [ 
+        {"name": "U", "weight": 1}, 
+        {"name": "V", "weight": 2}
+      ],
       "lengthToNext": 9993,
       "start": false
     },
     {
       "title": "S",
+      "artist": "Cody Howell",
       "file": "S.mp3",
-      "next": [ "T" ],
+      "next": [ 
+        {"name": "T", "weight": 1}
+      ],
       "lengthToNext": 60061,
       "start": false
     },
     {
       "title": "T",
+      "artist": "Cody Howell",
       "file": "T.mp3",
       "next": [ ],
       "lengthToNext": 1,
@@ -141,15 +219,21 @@
     },
     {
       "title": "U",
+      "artist": "Cody Howell",
       "file": "B.mp3",
-      "next": [ "N" ],
+      "next": [ 
+        {"name": "N", "weight": 1}
+      ],
       "lengthToNext": 14969,
       "start": false
     },
     {
       "title": "V",
+      "artist": "Cody Howell",
       "file": "E.mp3",
-      "next": [ "N" ],
+      "next": [ 
+        {"name": "N", "weight": 1}
+      ],
       "lengthToNext": 14994,
       "start": false
     }

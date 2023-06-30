@@ -6,8 +6,12 @@ body {
   height: 100%;
   width: 100%;
   margin: 5px;
-  display: flex;
-  /* justify-content: center; */
+  display: grid;
+  grid-template-areas: "A A D"
+                       "C B D";
+  grid-template-columns: 150px 1fr 200px;
+  grid-template-rows: 100px 1fr;
+  gap: 7px;
   align-items: center;
   padding: 1px;
   flex-direction: column;
@@ -18,58 +22,71 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-content: space-around;
+  width: 99%;
+  height: 97%;
+  grid-area: B;
+  background-color: rgb(208, 255, 208);
+}
+#main-container canvas {
+  background-color: white;
+}
+
+.TopLeft {
   width: 100%;
   height: 100%;
+  grid-area: A;
+}
+.TopLeft a {
+  padding-top: 3px;
+}
+
+#results {
+  height: 100%;
+  width: 90%;
+  padding: 5px;
+  margin: 2px;
+  margin-top: 30px;
+  grid-area: C;
+  background-color: rgb(247, 181, 181);
+}
+#results h1 {
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+}
+
+#current {
+  height: 100%;
+  width: 90%;
+  margin-left: 5px;
+  grid-area: D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(200, 240, 255);
+}
+
+.largeBold {
+  font-size: 30pt;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 #table-container {
   border: solid 1px;
-  padding: 2px;
+  margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: space-around;
   height: 90%;
-  width: 70%;
+  width: 100%;
 }
 
-.table-row-container {
-  padding: 2px;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  align-content: space-around;
-}
-
-.table-cells-container {
-  padding: 2px;
+#controls-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-content: space-around;
-}
-
-.table-cell {
-  flex-grow: 1;
-  border: solid 1px;
-  padding: 5px;
-  margin: 3px;
-  min-width: 50px;
-  display: flex;
-  align-items: center;
-}
-
-.next-cell {
-  background-color: #ffff70
-}
-
-.current-cell {
-  background-color: #70ff70
-}
-
-.end-cell {
-  background-color: #ff7070
 }
 
 #details-box {
@@ -77,21 +94,22 @@ body {
 }
 
 .BlueBox {
-  width: 80%;
-  height: 70%;
+  width: 98%;
+  height: 80%;
   padding: 10px;
-  margin: 10px;
+  margin: 0;
   background-color: hsl(239, 63%, 81%);
   overflow-y: scroll;
 }
-.RedBox {
-  width: 30%;
-  height: 200px;
-  padding: 10px;
-  margin: 10px;
-  background-color: hsl(0, 62%, 81%);
+
+textarea {
+  width: 90%;
 }
-.LeftColumn {
-  width: 100%;
-  height: 20%;
+
+#progress-bar {
+  width: 0%;
+  height: 20px;
+  background-color: #9301b0;
+  transition: width 0.2s ease-in-out;
+  align-self: flex-start;
 }

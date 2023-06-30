@@ -11,10 +11,12 @@
 </head>
 
 <body>
-  <div class="LeftColumn">
+  <div class="TopLeft">
     <p class="BlueBox">Last Updated: 6/29/23<br>
+      V 1.2.0 - Added a stop button. Changed layout substantially. Added a whole bunch of extra info. Implemented Played info. Implemented Weights.
+      Implemented a progress bar per clip. Random Seeds implemented. Enabled hover. Scaled nodes. <br>
       V 1.0.2 - Added details after beginning a playthrough. Implemented first web, redid audio for webs 1 and 3. <br>
-      V 1.0.0 - Made a dropdown and adjust file structure to allow for easy switching between webs. Option changing is not very robust; be nice! Refresh as often as needed.<br>
+      V 1.0.0 - Made a dropdown and adjust file structure to allow for easy switching between webs. Option changing is now robust (1.1)<br>
       V 0.9.4 - Framework now changes colors, correctly identifies start nodes and puts them back after color changes, and removed detail container. <br>
       V 0.9.0 - Created Vis Framework nodes, adjusted codebase to simply show the debug, moved items around.<br>
       V 0.8.1 - Adjusted nodes for Sea Shanty due to always getting caught in their loops, added link to sheet music
@@ -22,7 +24,6 @@
       V 0.8 - 34 audio clips (missing AW on my first pass), a complete loop. Correctly chooses random start nodes. Files
       have an extra ~0.5 seconds of tail to reduce silence.<br>
     </p>
-    <a href="https://drive.google.com/drive/folders/1LQNI6AASQ5ndLPA9zIyGUy-Z8frtHyxu?usp=sharing" style="margin-left:10px">Link to sheet music</a>
   </div>
   <div id="main-container">
     <select id="nameSelector">
@@ -31,11 +32,25 @@
       Loading Javascript...
     </div>
     <div id="table-container">
-
+      
     </div>
-    <div id="results-container">
-
-    </div>
+  </div>
+  <div id="results">
+    <a href="https://drive.google.com/drive/folders/1LQNI6AASQ5ndLPA9zIyGUy-Z8frtHyxu?usp=sharing">Link to sheet music</a>
+    <h1>Played: </h1>
+    <p></p>
+  </div>
+  <div id="current">
+    <h2>Being Played: </h2>
+    <p class="largeBold"><b>AA</b></p>
+    <span>Written by:</span>
+    <p id="RightArtist">Cody Howell</p>
+    <div id="progress-bar"></div>
+    <p>Next: <span id="nextNode">AB</span></p>
+    <p>Other possible nodes:</p>
+    <div id="nodeList"></div>
+    <p>Next Round Possibles: </p>
+    <div id="secondNodeList"></div>
   </div>
 </body>
 
