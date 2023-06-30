@@ -105,6 +105,9 @@ async function startup() {
   document.querySelector('#begin-btn').addEventListener('click', function(){
     document.getElementById('controls-container').innerHTML =`<button id="stop-btn">Stop</button>\n<p id="details-box">${names[webChoice].info}</p>`;
     document.querySelector('#stop-btn').addEventListener('click', stopAudio);
+    if (userAudio.length !== 0) {
+      nextNum = userAudio[0];
+    }
     prepareAudio();
   });
 
