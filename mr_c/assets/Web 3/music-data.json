@@ -1,0 +1,82 @@
+[
+  {
+      "title": "GA",
+      "artist": "Cody Howell",
+      "file": "GA.mp3",
+      "next": [ 
+        {"name": "GB", "weight": 2}
+      ],
+      "lengthToNext": 12933,
+      "start": true
+  },
+  {
+      "title": "GB",
+      "artist": "Cody Howell",
+      "file": "GB.mp3",
+      "next": [ 
+        {"name": "GC", "weight": 1}
+      ],
+      "lengthToNext": 12833,
+      "start": false
+  },
+  {
+      "title": "GC",
+      "artist": "Cody Howell",
+      "file": "GC.mp3",
+      "next": [ 
+        {"name": "GD", "weight": 1}
+      ],
+      "lengthToNext": 12878,
+      "start": false
+  },
+  {
+      "title": "GD",
+      "artist": "Cody Howell",
+      "file": "GD.mp3",
+      "next": [ 
+        {"name": "GE", "weight": 1}
+      ],
+      "lengthToNext": 14561,
+      "start": false
+  },
+  {
+      "title": "GE",
+      "artist": "Cody Howell",
+      "file": "GE.mp3",
+      "next": [ 
+        {"name": "GF", "weight": 2}
+      ],
+      "lengthToNext": 25857,
+      "start": true
+  },
+  {
+      "title": "GF",
+      "artist": "Cody Howell",
+      "file": "GF.mp3",
+      "next": [ 
+        {"name": "GG", "weight": 1}
+      ],
+      "lengthToNext": 17536,
+      "start": false
+  },
+  {
+      "title": "GG",
+      "artist": "Cody Howell",
+      "file": "GG.mp3",
+      "next": [ 
+        {"name": "GH", "weight": 1}
+      ],
+      "lengthToNext": 14334,
+      "start": false
+  },
+  {
+      "title": "GH",
+      "artist": "Cody Howell",
+      "file": "GH.mp3",
+      "next": [ 
+        {"name": "GA", "weight": 1}
+      ],
+      "lengthToNext": 12721,
+      "start": false
+  }
+]
