@@ -1,4 +1,4 @@
-var currentTitle, currentNum, nextTitle, nextNum, nextSelectedNum, nodes, edges, musicData, playedString, userNum;
+var currentTitle, currentNum, nextTitle, nextNum, nextSelectedNum, nodes, edges, musicData, playedString, userNum, playedCount;
 var prevNum = -1;
 var webChoice = 0;
 var audio = []; 
@@ -81,6 +81,7 @@ async function startup() {
   audio = [];
   start = [];
   playedString = "";
+  playedCount = 0;
   
   var placeholderText = document.querySelector("#stringRequest");
   placeholderText.placeholder = names[webChoice].author_route;
@@ -228,6 +229,8 @@ function prepareAudio() {
 
 function playNext() {
   console.log('  EisDEBUG: playNext(); nextNum is ' + nextNum);
+
+  playedCount++;
   
   if (userAudio[userNum] !== undefined) {
     audio[userAudio[userNum]].play();
@@ -244,13 +247,13 @@ function playNext() {
     timeouts.push(setTimeout(playNext, musicData[currentNum].lengthToNext));
     
     simulateProgress(musicData[currentNum].lengthToNext);
-
+    
     if(nextNum !== -1) {
       audio[nextNum].load();
     }
-
+    
   } else {
-  
+    
     if(nextNum === -1) {
       console.log('  EisDEBUG: song ended.');
       nextNum = 0;
@@ -263,7 +266,7 @@ function playNext() {
       currentTitle = nextTitle;
       currentNum = nextNum;
       timeouts.push(setTimeout(playNext, musicData[currentNum].lengthToNext));
-
+      
       simulateProgress(musicData[currentNum].lengthToNext);
       
       if(musicData[nextNum].next.length === 0) {
@@ -291,37 +294,38 @@ function playNext() {
       }
     }
   }
-        console.log(`    EisDEBUG: currentNum is ${currentNum}, currentTitle is ${currentTitle}, ` +
-        `nextNum is ${nextNum}, nextTitle is ${nextTitle}, prevNum is ${prevNum}, and nextSelectedNum is ${nextSelectedNum}`);
-        
-        if (prevNum > -1){
-          var prevColor;
-          switch(musicData[prevNum].start) {
-            case true:
-                    prevColor = "#47d16c";
-                    break;
-                default:
-                    prevColor = "#DDDDDD";
-                    break;
-          }
-          nodes.update({id: prevNum, color: prevColor});
+  console.log(`    EisDEBUG: currentNum is ${currentNum}, currentTitle is ${currentTitle}, ` +
+  `nextNum is ${nextNum}, nextTitle is ${nextTitle}, prevNum is ${prevNum}, and nextSelectedNum is ${nextSelectedNum}`);
+  
+  if (prevNum > -1){
+    var prevColor;
+    switch(musicData[prevNum].start) {
+      case true:
+        prevColor = "#47d16c";
+        break;
+        default:
+          prevColor = "#DDDDDD";
+          break;
         }
-        prevNum = currentNum;
-        
-        if (nextTitle !== "N/A") {
-          musicData.findIndex(obj => obj.title === nextTitle);
-          nodes.update({id: nextNum, color: '#e0d679'});
-        }
-        nodes.update({id: currentNum, color: '#5e71c4'}); 
-
-        updateRightColumn(currentTitle, nextTitle, musicData[currentNum].artist, musicData[currentNum].next);
-        updatePlayString(currentTitle);
+      nodes.update({id: prevNum, color: prevColor});
+    }
+    prevNum = currentNum;
+    
+    if (nextTitle !== "N/A") {
+      musicData.findIndex(obj => obj.title === nextTitle);
+      nodes.update({id: nextNum, color: '#e0d679'});
+    }
+    nodes.update({id: currentNum, color: '#5e71c4'}); 
+      
+    updateRightColumn(currentTitle, nextTitle, musicData[currentNum].artist, musicData[currentNum].next);
+    updatePlayString(currentTitle);
+    // Insert function for updating node weights via rules
         
 }
-
-
-// Functions to adjust things, not key functionality
-
+      
+      
+      // Functions to adjust things, not key functionality
+      
 function updateRightColumn(current, next, artist, nextList) {
   var currentNode = document.querySelector("#current .largeBold");
   var nextNode = document.querySelector("#nextNode");
@@ -361,7 +365,7 @@ function updateRightColumn(current, next, artist, nextList) {
 function updatePlayString(current) {
   var playNode = document.querySelector("#Played");
 
-  playedString += current + ", ";
+  playedString += current + " ";
 
   playNode.innerHTML = `${playedString}`;
 }
@@ -465,3 +469,5 @@ function waitForAudioLoad(audioElement, timeout) {
     }, timeout); // Timeout in milliseconds
   });
 }
+
+// Define function for verifying adjusting weights, following rules, loading Table at end if necessary. 

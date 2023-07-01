@@ -1,216 +1,216 @@
 [
     {
-      "title": "A",
+      "title": "AA",
       "artist": "Cody Howell",
       "file": "A.mp3",
       "next": [ 
-        {"name": "B", "weight": 3}, 
-        {"name": "E", "weight": 2}
+        {"name": "AB", "weight": 3}, 
+        {"name": "AE", "weight": 2}
       ],
       "lengthToNext": 15056,
       "start": true
     },
     {
-      "title": "B",
+      "title": "AB",
       "artist": "Cody Howell",
       "file": "B.mp3",
       "next": [ 
-        {"name": "C", "weight": 2}, 
-        {"name": "D", "weight": 1}
+        {"name": "AC", "weight": 2}, 
+        {"name": "AD", "weight": 1}
       ],
       "lengthToNext": 14969,
       "start": false
     },
     {
-      "title": "C",
+      "title": "AC",
       "artist": "Cody Howell",
       "file": "C.mp3",
       "next": [ 
-        {"name": "K", "weight": 1} 
+        {"name": "AK", "weight": 1} 
       ],
       "lengthToNext": 14984,
       "start": false
     },
     {
-      "title": "D",
+      "title": "AD",
       "artist": "Cody Howell",
       "file": "D.mp3",
       "next": [ 
-        {"name": "J", "weight": 1}
+        {"name": "AJ", "weight": 1}
       ],
       "lengthToNext": 15000,
       "start": false
     },
     {
-      "title": "E",
+      "title": "AE",
       "artist": "Cody Howell",
       "file": "E.mp3",
       "next": [ 
-        {"name": "F", "weight": 2}, 
-        {"name": "H", "weight": 2}, 
-        {"name": "I", "weight": 1}
+        {"name": "AF", "weight": 2}, 
+        {"name": "AH", "weight": 2}, 
+        {"name": "AI", "weight": 1}
       ],
       "lengthToNext": 14994,
       "start": false
     },
     {
-      "title": "F",
+      "title": "AF",
       "artist": "Cody Howell",
       "file": "F.mp3",
       "next": [ 
-        {"name": "G", "weight": 1}, 
-        {"name": "M", "weight": 1}
+        {"name": "AG", "weight": 1}, 
+        {"name": "AM", "weight": 1}
       ],
       "lengthToNext": 14998,
       "start": false
     },
     {
-      "title": "G",
+      "title": "AG",
       "artist": "Cody Howell",
       "file": "G.mp3",
       "next": [ 
-        {"name": "B", "weight": 1}, 
-        {"name": "L", "weight": 2}
+        {"name": "AB", "weight": 1}, 
+        {"name": "AL", "weight": 2}
       ],
       "lengthToNext": 14972,
       "start": false
     },
     {
-      "title": "H",
+      "title": "AH",
       "artist": "Cody Howell",
       "file": "H.mp3",
       "next": [ 
-        {"name": "B", "weight": 1}, 
-        {"name": "G", "weight": 3},
-        {"name": "M", "weight": 2}
+        {"name": "AB", "weight": 1}, 
+        {"name": "AG", "weight": 3},
+        {"name": "AM", "weight": 2}
       ],
       "lengthToNext": 14962,
       "start": false
     },
     {
-      "title": "I",
+      "title": "AI",
       "artist": "Cody Howell",
       "file": "I.mp3",
       "next": [ 
-        {"name": "B", "weight": 1}, 
-        {"name": "G", "weight": 3}, 
-        {"name": "M", "weight": 2}
+        {"name": "AB", "weight": 1}, 
+        {"name": "AG", "weight": 3}, 
+        {"name": "AM", "weight": 2}
       ],
       "lengthToNext": 14989,
       "start": false
     },
     {
-      "title": "J",
+      "title": "AJ",
       "artist": "Cody Howell",
       "file": "J.mp3",
       "next": [ 
-        {"name": "E", "weight": 2}, 
-        {"name": "L", "weight": 3}
+        {"name": "AE", "weight": 2}, 
+        {"name": "AL", "weight": 3}
       ],
       "lengthToNext": 14931,
       "start": false
     },
     {
-      "title": "K",
+      "title": "AK",
       "artist": "Cody Howell",
       "file": "K.mp3",
       "next": [ 
-        {"name": "E", "weight": 2}, 
-        {"name": "L", "weight": 3}
+        {"name": "AE", "weight": 2}, 
+        {"name": "AL", "weight": 3}
       ],
       "lengthToNext": 15003,
       "start": false
     },
     {
-      "title": "L",
+      "title": "AL",
       "artist": "Cody Howell",
       "file": "L.mp3",
       "next": [ 
-        {"name": "N", "weight": 1}
+        {"name": "AN", "weight": 1}
       ],
       "lengthToNext": 15005,
       "start": false
     },
     {
-      "title": "M",
+      "title": "AM",
       "artist": "Cody Howell",
       "file": "M.mp3",
       "next": [ 
-        {"name": "N", "weight": 1}
+        {"name": "AN", "weight": 1}
       ],
       "lengthToNext": 7537,
       "start": false
     },
     {
-      "title": "N",
+      "title": "AN",
       "artist": "Cody Howell",
       "file": "N.mp3",
       "next": [ 
-        {"name": "O", "weight": 1}, 
-        {"name": "P", "weight": 1}, 
-        {"name": "Q", "weight": 2}
+        {"name": "AO", "weight": 1}, 
+        {"name": "AP", "weight": 1}, 
+        {"name": "AQ", "weight": 2}
       ],
       "lengthToNext": 19959,
       "start": false
     },
     {
-      "title": "O",
+      "title": "AO",
       "artist": "Cody Howell",
       "file": "O.mp3",
       "next": [ 
-        {"name": "P", "weight": 1}, 
-        {"name": "R", "weight": 2}, 
-        {"name": "S", "weight": 3}
+        {"name": "AP", "weight": 1}, 
+        {"name": "AR", "weight": 2}, 
+        {"name": "AS", "weight": 3}
       ],
       "lengthToNext": 10000,
       "start": false
     },
     {
-      "title": "P",
+      "title": "AP",
       "artist": "Cody Howell",
       "file": "P.mp3",
       "next": [ 
-        {"name": "O", "weight": 1}, 
-        {"name": "R", "weight": 1}, 
-        {"name": "S", "weight": 1}
+        {"name": "AO", "weight": 1}, 
+        {"name": "AR", "weight": 1}, 
+        {"name": "AS", "weight": 1}
       ],
       "lengthToNext": 10036,
       "start": false
     },
     {
-      "title": "Q",
+      "title": "AQ",
       "artist": "Cody Howell",
       "file": "Q.mp3",
       "next": [ 
-        {"name": "R", "weight": 2}, 
-        {"name": "S", "weight": 3}
+        {"name": "AR", "weight": 2}, 
+        {"name": "AS", "weight": 3}
       ],
       "lengthToNext": 9967,
       "start": false
     },
     {
-      "title": "R",
+      "title": "AR",
       "artist": "Cody Howell",
       "file": "R.mp3",
       "next": [ 
-        {"name": "U", "weight": 1}, 
-        {"name": "V", "weight": 2}
+        {"name": "AU", "weight": 1}, 
+        {"name": "AV", "weight": 2}
       ],
       "lengthToNext": 9993,
       "start": false
     },
     {
-      "title": "S",
+      "title": "AS",
       "artist": "Cody Howell",
       "file": "S.mp3",
       "next": [ 
-        {"name": "T", "weight": 1}
+        {"name": "AT", "weight": 1}
       ],
       "lengthToNext": 60061,
       "start": false
     },
     {
-      "title": "T",
+      "title": "AT",
       "artist": "Cody Howell",
       "file": "T.mp3",
       "next": [ ],
@@ -218,21 +218,21 @@
       "start": false
     },
     {
-      "title": "U",
+      "title": "AU",
       "artist": "Cody Howell",
       "file": "B.mp3",
       "next": [ 
-        {"name": "N", "weight": 1}
+        {"name": "AN", "weight": 1}
       ],
       "lengthToNext": 14969,
       "start": false
     },
     {
-      "title": "V",
+      "title": "AV",
       "artist": "Cody Howell",
       "file": "E.mp3",
       "next": [ 
-        {"name": "N", "weight": 1}
+        {"name": "AN", "weight": 1}
       ],
       "lengthToNext": 14994,
       "start": false

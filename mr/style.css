@@ -113,3 +113,10 @@ textarea {
   transition: width 0.2s ease-in-out;
   align-self: flex-start;
 }
+
+#Played {
+  font-family: Courier, monospace;
+  font-size: 11pt;
+  max-height: 250px;
+  overflow-y: auto;
+}
