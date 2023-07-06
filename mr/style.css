@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  width: 99%;
 }
 
 body {
@@ -104,6 +105,7 @@ body {
 
 textarea {
   width: 90%;
+  resize: none;
 }
 
 #progress-bar {
