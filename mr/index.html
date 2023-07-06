@@ -14,7 +14,7 @@
 <body>
   <div class="TopLeft">
     <p class="BlueBox">Last Updated: 6/30/23<br>
-      Future: V 1.7.0 - Implement adjustable weights, rewrite Web 1 with adjusted weights, rewrite all JSON's.. again. This site will host both complex and simple webs. <br>
+      V 1.7.0 - Implement adjustable weights, rewrite Web 1 with adjusted weights. This site will host both complex and simple webs. New user input to influence <br>
       V 1.5.0 - Implemented Requests, strings that traverse the web. Box checked verfies the web intends. Debug mode included (checkbox off). 
       Adjusted right column. Moved audioPrep function inside Begin button to force first audio to be loaded. Adjusted Played string output to copypaste into requests. Brought Played font smaller.<br>
       V 1.2.0 - Added a stop button. Changed layout substantially. Added a whole bunch of extra info. Implemented Played info. Implemented Weights.
@@ -45,8 +45,8 @@
     <h2>Request</h2>
     <p>Write a space-separated set of nodes, check the box if you want to follow the network, and it will play them for you.</p>
     <textarea id="stringRequest" style="height: 50px;"></textarea>
-    <input type="checkbox" id="myCheckbox" checked="checked">
-    <label for="myCheckbox">Verify</label>
+    <input type="checkbox" id="verifyCheckbox" checked="checked">
+    <label for="verifyCheckbox">Verify</label>
     <button id="textButton">Submit</button>
     <p id="VerificationStatus"></p>
     <h1>Played: </h1>
@@ -59,6 +59,8 @@
     <p id="RightArtist">Cody Howell</p>
     <div id="progress-bar"></div>
     <div id="valueString"></div>
+    <label for="userInputCheckbox" id="userInputLabel">For Complex Webs</label>
+    <input type="checkbox" id="userInputCheckbox" disabled>
     <p>Next: <span id="nextNode">AB</span></p>
     <p>Other possible nodes:</p>
     <div id="nodeList"></div>

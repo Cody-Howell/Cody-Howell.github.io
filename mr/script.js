@@ -35,7 +35,7 @@ selectElement.addEventListener("change", function() {
 var submitText = document.querySelector("#textButton");
 submitText.addEventListener('click', function() {
   var string = document.querySelector("#stringRequest").value;
-  var verify = document.querySelector("#myCheckbox").checked;
+  var verify = document.querySelector("#verifyCheckbox").checked;
   console.log(`SilDEBUG: Clicked - ${string}, ${verify}`);
   userNum = 0;
   
@@ -93,6 +93,10 @@ async function startup() {
   playedString = "";
   playedCount = 0;
   complexWeb = false;
+  var checkbox = document.getElementById("userInputCheckbox");
+  checkbox.disabled = true; 
+  var checkboxLabel = document.getElementById("userInputLabel");
+  checkboxLabel.innerHTML = "";
   
   var placeholderText = document.querySelector("#stringRequest"); // author_route defined in assets/names.js
   placeholderText.placeholder = names[webChoice].author_route;
@@ -104,10 +108,12 @@ async function startup() {
   .then(data => musicData = data);
 
   if ('complex' in names[webChoice]){
-    console.log(`  SilDEBUG: Is truly complex.`);
+    // console.log(`  SilDEBUG: Is truly complex.`);
     complexWeb = true;
     complexArray = [...names[webChoice].complex.setArray];
     complexArray = updateInitialArray(complexArray, names[webChoice].complex.rules.init, names[webChoice].complex.arrayRules);
+    checkbox.disabled = false;
+    checkboxLabel.innerHTML = "For Complex Webs";
   }
 
   
@@ -136,7 +142,7 @@ async function startup() {
 }
 
 function loadTable() {
-  console.log('  EisDEBUG: loadTable() started.');
+  // console.log('  EisDEBUG: loadTable() started.');
 
   let nodeArray = [];
   let edgeArray = [];
@@ -243,30 +249,30 @@ function loadTable() {
 
   var network = new vis.Network(container, data, options);
   
-  console.log('  EisDEBUG: loadTable() completed.');
+  // console.log('  EisDEBUG: loadTable() completed.');
 }
 
 function prepareAudio() {
-  console.log('  EisDEBUG: prepareAudio() started; musicData.length is ' + musicData.length);
+  // console.log('  EisDEBUG: prepareAudio() started; musicData.length is ' + musicData.length);
   for(let i = 0; i < musicData.length; i++) {
     audio.push(new Audio(`assets/${names[webChoice].name}/audio-clips/` + musicData[i].file));
   }
 
   audio[nextNum].load();
 
-  console.log('  EisDEBUG: prepareAudio() completed; audio.length is ' + audio.length);
-  console.log('  EisDEBUG: prepareAudio() completed; start.length is ' + start.length);
+  // console.log('  EisDEBUG: prepareAudio() completed; audio.length is ' + audio.length);
+  // console.log('  EisDEBUG: prepareAudio() completed; start.length is ' + start.length);
 
   waitForAudioLoad(audio[nextNum], 3000)
   .then(function() {
-    console.log('Audio file is loaded and ready to play.'); // Make sure the first audio is loaded before playing. 
+    // console.log('Audio file is loaded and ready to play.'); // Make sure the first audio is loaded before playing. 
     playNext();
   });
   
 }
 
 function playNext() {
-  console.log('  EisDEBUG: playNext(); nextNum is ' + nextNum);
+  // console.log('  EisDEBUG: playNext(); nextNum is ' + nextNum);
 
   playedCount++;
   
@@ -309,7 +315,7 @@ function playNext() {
       nextSelectedNum = -1;
     } else {
       audio[nextNum].play();
-      console.log('    EisDEBUG: playing track ' + nextNum);
+      // console.log('    EisDEBUG: playing track ' + nextNum);
       
       currentTitle = nextTitle;
       currentNum = nextNum;
@@ -318,7 +324,7 @@ function playNext() {
       simulateProgress(musicData[currentNum].lengthToNext); // Function that makes the progress bar; can't be stopped. 
       
       if(musicData[nextNum].next.length === 0) { // Left a lot of this untouched. 
-        console.log('  EisDEBUG: no next song.');
+        // console.log('  EisDEBUG: no next song.');
         nextNum = -1;
       } else {
         // choose next
@@ -333,7 +339,7 @@ function playNext() {
         }
         
         if(nextNum === currentNum) {
-          console.log('    EisDEBUG: track repeats');
+          // console.log('    EisDEBUG: track repeats');
         } else {
           audio[nextNum].load();
         }
@@ -471,11 +477,12 @@ function simulateProgress(totalTime) {
     var progress = (elapsedTime / totalTime) * 100;
     var remainingProgress = 100 - progress;
     // Attempts to empty/complete progress bar on stop have not worked. Not necessary to function. 
+    // *sigh* actually impossible. 
 
     if (currentTime >= endTime) { 
       clearInterval(interval);
       progressBar.style.width = '100%';
-    } else {
+    }  else {
       progressBar.style.width = progress + '%';
     }
   }

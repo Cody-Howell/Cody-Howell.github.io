@@ -452,19 +452,19 @@
         <table>
             <tr>
                 <td>visited</td>
-                <td>Checks if you have visited a given node, and sets the bit to a given value.  <br>
+                <td>Checks if the most recent node is one you're looking for, and performs the action. Allows you to use other rules without being reset by this rule.  <br>
                     “visited”: “AA”
                     </td> 
             </tr>
             <tr>
-                <td>sequenceMatches (NI)</td>
-                <td>Checks if a sequence is matched given an array. Limit of last 20 variables. <br>
+                <td>sequenceMatches</td>
+                <td>Checks if the most recent played nodes match the sequence. <br>
                     “sequenceMatches”: [“AA”, “AB”, “AC”]
                     </td>
             </tr>
             <tr>
-                <td>sequenceBroken (NI)</td>
-                <td>Checks if a sequence no longer matches a given sequence, still limited to 20. Used best to reset sequenceMatches. <br>
+                <td>sequenceBroken</td>
+                <td>Checks if a sequence no longer matches a given sequence. Used best to reset sequenceMatches. <br>
                     “sequenceBroken”: [“AA”, “AB”, “AC”]
                     </td>
             </tr>
@@ -481,19 +481,19 @@
                     </td>
             </tr>
             <tr>
-                <td>userInput (NI)</td>
-                <td>Enables a checkbox that the user presses to adjust a binary variable on the website. <br>
+                <td>userInput</td>
+                <td>Enables a checkbox that the user presses to adjust a binary variable on the website. Can still perform all actions. 1 means checked.<br>
                     “userInput”: 1 
                     </td>
             </tr>
         </table>
-        <p>... And those are all the simple rules. There are a few even more complex rules you can implement. </p>
+        <p>... And those are all the simple rules. There are a few even more complex rules you can use. </p>
 
         <h3 id="ch8 9 3">8.9.3 Complex Rules</h3>
         <table>
             <tr>
-                <td>visited-AND (NI)</td>
-                <td>Checks if you have visited both nodes in the array. <br>
+                <td>visited-AND</td>
+                <td>Checks if you have visited both nodes in the array. Due to programming technicalities, this rule will override other rules each time once it's active.<br>
                     “visited-AND”: [“AA”, “AB”]
                     </td>
             </tr>
