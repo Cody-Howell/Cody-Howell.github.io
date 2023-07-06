@@ -21,7 +21,6 @@ const names = [
             },
             arrayRules: [
                 {
-                    start: 0,
                     end: 1,
                     loop: false
                 }

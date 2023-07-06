@@ -9,7 +9,7 @@ var nodeArray = [];
 var complexArray = [];
 var userAudio = []; // Lots more variables
 
-import {names} from "./assets/names.js" // Import function for modules!
+import { names } from "./assets/names.js" // Import function for modules!
 import { updateComplexArray, updateInitialArray } from "./rules.js"; // Rules are complex and numerous enough they should get their own file. 
 
 // Creates option select in the container
@@ -102,7 +102,7 @@ async function startup() {
   placeholderText.placeholder = names[webChoice].author_route;
   placeholderText.value = names[webChoice].author_route;
   
-  var filepath = `./assets/${names[webChoice].name}/music-data.json`; // Fetches relative file structure, changes with webChoice.
+  var filepath = `./assets/(${names[webChoice].name}) music-data.json`; // Fetches relative file structure, changes with webChoice.
   await fetch(filepath) // I guess this works. 
   .then(response => response.json())
   .then(data => musicData = data);
@@ -255,7 +255,7 @@ function loadTable() {
 function prepareAudio() {
   // console.log('  EisDEBUG: prepareAudio() started; musicData.length is ' + musicData.length);
   for(let i = 0; i < musicData.length; i++) {
-    audio.push(new Audio(`assets/${names[webChoice].name}/audio-clips/` + musicData[i].file));
+    audio.push(new Audio(`assets/audio-clips/` + musicData[i].file));
   }
 
   audio[nextNum].load();

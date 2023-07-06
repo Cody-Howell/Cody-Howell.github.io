@@ -2,7 +2,7 @@
   {
       "title": "GA",
       "artist": "Cody Howell",
-      "file": "GA.mp3",
+      "file": "W0003AAGA.mp3",
       "next": [ 
         {"name": "GB", "weight": 2}
       ],
@@ -12,7 +12,7 @@
   {
       "title": "GB",
       "artist": "Cody Howell",
-      "file": "GB.mp3",
+      "file": "W0003AAGB.mp3",
       "next": [ 
         {"name": "GC", "weight": 1}
       ],
@@ -22,7 +22,7 @@
   {
       "title": "GC",
       "artist": "Cody Howell",
-      "file": "GC.mp3",
+      "file": "W0003AAGC.mp3",
       "next": [ 
         {"name": "GD", "weight": 1}
       ],
@@ -32,7 +32,7 @@
   {
       "title": "GD",
       "artist": "Cody Howell",
-      "file": "GD.mp3",
+      "file": "W0003AAGD.mp3",
       "next": [ 
         {"name": "GE", "weight": 1}
       ],
@@ -42,7 +42,7 @@
   {
       "title": "GE",
       "artist": "Cody Howell",
-      "file": "GE.mp3",
+      "file": "W0003AAGE.mp3",
       "next": [ 
         {"name": "GF", "weight": 2}
       ],
@@ -52,7 +52,7 @@
   {
       "title": "GF",
       "artist": "Cody Howell",
-      "file": "GF.mp3",
+      "file": "W0003AAGF.mp3",
       "next": [ 
         {"name": "GG", "weight": 1}
       ],
@@ -62,7 +62,7 @@
   {
       "title": "GG",
       "artist": "Cody Howell",
-      "file": "GG.mp3",
+      "file": "W0003AAGG.mp3",
       "next": [ 
         {"name": "GH", "weight": 1}
       ],
@@ -72,7 +72,7 @@
   {
       "title": "GH",
       "artist": "Cody Howell",
-      "file": "GH.mp3",
+      "file": "W0003AAGH.mp3",
       "next": [ 
         {"name": "GA", "weight": 1}
       ],

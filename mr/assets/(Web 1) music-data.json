@@ -2,7 +2,7 @@
     {
       "title": "AA",
       "artist": "Cody Howell",
-      "file": "A.mp3",
+      "file": "W0001AAAA.mp3",
       "next": [ 
         {"name": "AB", "weight": 3}, 
         {"name": "AE", "weight": 2}
@@ -13,7 +13,7 @@
     {
       "title": "AB",
       "artist": "Cody Howell",
-      "file": "B.mp3",
+      "file": "W0001AAAB.mp3",
       "next": [ 
         {"name": "AC", "index": 0, "weight": [ 2, 0 ]}, 
         {"name": "AD", "index": 0, "weight": [ 1, 0 ]},
@@ -25,7 +25,7 @@
     {
       "title": "AC",
       "artist": "Cody Howell",
-      "file": "C.mp3",
+      "file": "W0001AAAC.mp3",
       "next": [ 
         {"name": "AK", "weight": 1} 
       ],
@@ -35,7 +35,7 @@
     {
       "title": "AD",
       "artist": "Cody Howell",
-      "file": "D.mp3",
+      "file": "W0001AAAD.mp3",
       "next": [ 
         {"name": "AJ", "weight": 1}
       ],
@@ -45,7 +45,7 @@
     {
       "title": "AE",
       "artist": "Cody Howell",
-      "file": "E.mp3",
+      "file": "W0001AAAE.mp3",
       "next": [ 
         {"name": "AF", "index": 0, "weight": [ 2, 0 ]}, 
         {"name": "AH", "index": 0, "weight": [ 2, 0 ]}, 
@@ -58,7 +58,7 @@
     {
       "title": "AF",
       "artist": "Cody Howell",
-      "file": "F.mp3",
+      "file": "W0001AAAF.mp3",
       "next": [ 
         {"name": "AG", "weight": 1}, 
         {"name": "AM", "weight": 1}
@@ -69,7 +69,7 @@
     {
       "title": "AG",
       "artist": "Cody Howell",
-      "file": "G.mp3",
+      "file": "W0001AAAG.mp3",
       "next": [ 
         {"name": "AB", "weight": 1}, 
         {"name": "AL", "weight": 2}
@@ -80,7 +80,7 @@
     {
       "title": "AH",
       "artist": "Cody Howell",
-      "file": "H.mp3",
+      "file": "W0001AAAH.mp3",
       "next": [ 
         {"name": "AB", "weight": 1}, 
         {"name": "AG", "weight": 3},
@@ -92,7 +92,7 @@
     {
       "title": "AI",
       "artist": "Cody Howell",
-      "file": "I.mp3",
+      "file": "W0001AAAI.mp3",
       "next": [ 
         {"name": "AB", "weight": 1}, 
         {"name": "AG", "weight": 3}, 
@@ -104,7 +104,7 @@
     {
       "title": "AJ",
       "artist": "Cody Howell",
-      "file": "J.mp3",
+      "file": "W0001AAAJ.mp3",
       "next": [ 
         {"name": "AE", "weight": 2}, 
         {"name": "AL", "weight": 3}
@@ -115,7 +115,7 @@
     {
       "title": "AK",
       "artist": "Cody Howell",
-      "file": "K.mp3",
+      "file": "W0001AAAK.mp3",
       "next": [ 
         {"name": "AE", "weight": 2}, 
         {"name": "AL", "weight": 3}
@@ -126,7 +126,7 @@
     {
       "title": "AL",
       "artist": "Cody Howell",
-      "file": "L.mp3",
+      "file": "W0001AAAL.mp3",
       "next": [ 
         {"name": "AN", "weight": 1}
       ],
@@ -136,7 +136,7 @@
     {
       "title": "AM",
       "artist": "Cody Howell",
-      "file": "M.mp3",
+      "file": "W0001AAAM.mp3",
       "next": [ 
         {"name": "AN", "weight": 1}
       ],
@@ -146,7 +146,7 @@
     {
       "title": "AN",
       "artist": "Cody Howell",
-      "file": "N.mp3",
+      "file": "W0001AAAN.mp3",
       "next": [ 
         {"name": "AO", "weight": 1}, 
         {"name": "AP", "weight": 1}, 
@@ -158,7 +158,7 @@
     {
       "title": "AO",
       "artist": "Cody Howell",
-      "file": "O.mp3",
+      "file": "W0001AAAO.mp3",
       "next": [ 
         {"name": "AP", "weight": 1}, 
         {"name": "AR", "weight": 2}, 
@@ -170,7 +170,7 @@
     {
       "title": "AP",
       "artist": "Cody Howell",
-      "file": "P.mp3",
+      "file": "W0001AAAP.mp3",
       "next": [ 
         {"name": "AO", "weight": 1}, 
         {"name": "AR", "weight": 1}, 
@@ -182,7 +182,7 @@
     {
       "title": "AQ",
       "artist": "Cody Howell",
-      "file": "Q.mp3",
+      "file": "W0001AAAQ.mp3",
       "next": [ 
         {"name": "AR", "weight": 2}, 
         {"name": "AS", "weight": 3}
@@ -193,7 +193,7 @@
     {
       "title": "AR",
       "artist": "Cody Howell",
-      "file": "R.mp3",
+      "file": "W0001AAAR.mp3",
       "next": [ 
         {"name": "AB", "weight": 1}, 
         {"name": "AE", "weight": 2}
@@ -204,7 +204,7 @@
     {
       "title": "AS",
       "artist": "Cody Howell",
-      "file": "S.mp3",
+      "file": "W0001AAAS.mp3",
       "next": [ 
         {"name": "AT", "weight": 1}
       ],
@@ -214,7 +214,7 @@
     {
       "title": "AT",
       "artist": "Cody Howell",
-      "file": "T.mp3",
+      "file": "W0001AAAT.mp3",
       "next": [ ],
       "lengthToNext": 27000,
       "start": false

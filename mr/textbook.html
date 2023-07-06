@@ -84,7 +84,7 @@
                 <li>Branch - Generic term for a line, whether it is inside a theme, subtheme, or variation.</li>
             </ul>
         </div>
-        <p>This is an example of what a completed loop web might look like. This is for Web 2. I've used multiple colors for my nodes; only focus on the green ones.</p>
+        <p>This is an example of what a completed loop web might look like. This is for Web 2. I've used multiple colors for my nodes; don't worry about those for now.</p>
         <img src="./images/Map Web 2 colorized.png">
         <p>The largest boxes are Themes, inside Themes are Subthemes, and inside Themes but not within their own box are Branches, or the Branch Variation (<a href="#ch3 1 2">3.1.2</a>). <br>
         These ideas are not rigid rules in how they are defined or implemented; for example, sometimes in small webs Subthemes might be the same as Branches without this visualization tool. That is fine; it is only a tool for you to see what ideas you have and where things might be added. </p>
@@ -219,7 +219,7 @@
 
         <h2 id="ch5 2">5.2 Node Array</h2>
         <p>In JSON files, you can have an array of objects (curly-braced items like above) with a comma separating each one, and the program can run through each one and get the information it needs from it. </p>
-        <p>So, for every file you create, every node you have, you need to create one of these objects. It will contain the name that’s shown, the filename (discussed in <a href="#ch5 2 1">5.2.1</a>), where the node is supposed to go and how often you want it to go there (“next”), how long until the next node should play, and if it’s a starting node. </p>
+        <p>So, for every file you create, every node you have, you need to create one of these objects. It will contain the name that’s shown, the filename (discussed in <a href="#ch5 2 1">5.2.1</a>), where the node is supposed to go and how often you want it to go there (“next”), how long until the next node should play, and if it’s a starting node. Starting nodes are colored green (<a href="#ch2">Ch. 2</a>)</p>
         <p>Here's what it looks like.</p>
         <pre class="code-interface">
             <code>
@@ -272,7 +272,7 @@
 
         <h3 id="ch5 2 2">5.2.2 Length to Next</h3>
         <p>This variable is how long the program will wait until playing the next node.</p>
-        <p>This can be found in most audio editing platforms, but I will be talking about Pro Tools. If you’re just exporting a long string of nodes with a little break in-between, you should break everything apart and put them on two different tracks, one on the top track, next on the bottom, etc. Line them up so that they play well into each other, then make sure there’s around 0.5-1 second of trail after each track. Export them with the filename mentioned above.</p>
+        <p>This can be found in most audio editing platforms, but I will be talking about Pro Tools. If you’re just exporting a long string of nodes with a little break in-between, you should break everything apart and put them on two different tracks, one on the top track, next on the bottom, etc. Line them up so that they play well into each other, then make sure there’s around 0.5-1 second of trail after each track. Measure how many milliseconds from the start to where the next one plays. Move them so none of them overlap each other, and export them with the filename mentioned above.</p>
 
         <h3 id="ch5 2 3">5.2.3 Next</h3>
         <p>This is another nested array of objects… So, for each other node the current node can go, you need to define the other’s title and the weight. The weight is adjusted so that the higher it is, the more likely it is to go down that path. What you decide to do with that is up to you.</p>
@@ -299,12 +299,12 @@
         <p>This web was created with the idea of being in a boss room in a video game; generally the theme stays pretty consistent, and this attempts to just variate it a bit from minute to minute. These inner nodes should probably be long in comparison to the length of nodes from a normal web; perhaps up to a minute or two long for each one.</p>
         <p>Here, the web will only move on to J when the program changes the weights and allows it to move on, when you’re finished with the boss, or the user did something to initiate a change.</p>
 
-        <h2 id="ch8 5">8.5 New Data Rules</h2>
+        <h2 id="ch8 7">8.7 New Data Rules</h2>
         <p>There are two things you need to implement when creating a Variable Weight web. First, on any nodes that will be adjusted by variables in the array, you need to slightly adjust the structure. In the “Names” object, you’ll also have to add in some more information, defining all the rules you want to implement.</p>
         <p>I’ll be using the term Complex Array; this refers to the array of values that will be changing to influence the weights in the web. It can be as simple as a single binary value, or you can use multiple places in the array with a range of different values that all interact with each other. Be careful of how complex you make it, though. <br> First, the nodes.</p>
 
-        <h3 id="ch8 5 1">8.5.1 Variable Weight Nodes</h3>
-        <p>The old Next information looks like this. Any nodes that won't be changin with incoming information will continue to be written this way.</p>
+        <h3 id="ch8 7 1">8.7.1 Variable Weight Nodes</h3>
+        <p>The old Next information looks like this. Any nodes that won't be changing with incoming information will continue to be written this way.</p>
         <pre class="code-interface">
             <code>
     <span class="line-number">1</span>{<span class="property">"name"</span>: <span class="string">"AB"</span>, <span class="property">"weight"</span>: <span class="number">3</span>},
@@ -323,7 +323,7 @@
           
         <p>The “index” value refers to the index of the Complex Array that that arrow will be reading off of; these can be different from any arrow from the same node, so these can be as free as necessary. The value that comes back from that place in the Complex Array is the index where the weight is read from this object, so it can be anywhere from 2 to very-large arrays, depending on how large the value in the Complex Array can be.</p>
 
-        <h3 id="ch8 5 2">8.5.2 Complex Rules</h3>
+        <h3 id="ch8 7 2">8.7.2 Complex Rules</h3>
         <p>This is the entire object that you’ll need to create to add onto your <a href="#ch5 1">Names object</a>.</p>
         <pre class="code-interface">
             <code>
@@ -353,26 +353,24 @@
     <span class="line-number">24</span>    },
     <span class="line-number">25</span>    arrayRules: [
     <span class="line-number">26</span>        {
-    <span class="line-number">27</span>            start: <span class="number">0</span>,
-    <span class="line-number">28</span>            end: <span class="number">1</span>,
-    <span class="line-number">29</span>            loop: <span class="boolean">false</span>
-    <span class="line-number">30</span>        },
-    <span class="line-number">31</span>        {
-    <span class="line-number">32</span>            start: <span class="number">0</span>,
-    <span class="line-number">33</span>            end: <span class="number">1</span>,
-    <span class="line-number">34</span>            loop: <span class="boolean">false</span>
-    <span class="line-number">35</span>        }
-    <span class="line-number">36</span>    ]
-    <span class="line-number">37</span>}
+    <span class="line-number">27</span>            end: <span class="number">1</span>,
+    <span class="line-number">28</span>            loop: <span class="boolean">false</span>
+    <span class="line-number">39</span>        },
+    <span class="line-number">30</span>        {
+    <span class="line-number">31</span>            end: <span class="number">1</span>,
+    <span class="line-number">32</span>            loop: <span class="boolean">false</span>
+    <span class="line-number">33</span>        }
+    <span class="line-number">34</span>    ]
+    <span class="line-number">35</span>}
             </code>
           </pre>
           
         <p>And ta-da! That’s all you have to do. </p>
         <p>Alright. The first variable is setArray. It is what the starting position of your Complex Array will be whenever the web is loaded. This is not forced to be all 0’s for what your weights are, allowing for more flexibility.</p>
         <p>The second variable is all of the rules you need to create. These are defined in <a href="#ch8 9">8.9</a>. The initial rules are checked when your web is loaded, such as a random number or what time it is, and the running rules are checked every time a node is chosen. You need to specify the index that the rule will change, the action of what will happen to the value, the amount that it will change (again, reference 8.6), and the condition it needs to satisfy. For now, only one condition is allowed per rule, though you may have multiple rules reference a single index of the array. </p>
-        <p>The final variable you need to define is arrayRules. This needs to be the same number of objects as the length of your starting array. It defines the numbers that the array will be forced into, so you can use all the different actions without breaking your web.  You need to define a start, end, and loop for each object. The numbers in the array will be forced into the range between the start and end, both numbers included. The loop boolean will allow you to make the array a loop, so once you reach the end of the array, you’ll start back at the beginning, and vice versa. Otherwise, the number will be moved to the nearest number within the range you defined.</p>
+        <p>The final variable you need to define is arrayRules. This needs to be the same number of objects as the length of your starting array. It defines the numbers that the array will be forced into, so you can use all the different actions without breaking your web.  You need to define an end and loop for each object, as each will be starting from index 0. The numbers in the array will be forced into the range between 0 and end, both numbers included. The loop boolean will allow you to make the array a loop, so once you reach the end of the array, you’ll start back at the beginning, and vice versa. Otherwise, the number will be moved to the nearest number within the range you defined.</p>
 
-        <h2 id="ch8 6">8.6 Actions</h2>
+        <h2 id="ch8 8">8.8 Actions</h2>
         <p>Actions are what the rules can do to your array values. Currently, these actions are: </p>
         <table>
             <tr>

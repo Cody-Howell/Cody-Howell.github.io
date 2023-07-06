@@ -4,7 +4,7 @@ function updateComplexArray(complexArray, rules, arrayRules,  nodeArray, playedC
     rules.forEach(rule => {
         complexArray[rule.index] = verifyRules(complexArray[rule.index], rule, nodeArray, playedCount);
     });
-    arrayRules.forEach((object, index) => {complexArray[index] = forceValue(complexArray[index], object.loop, object.start, object.end);});
+    arrayRules.forEach((object, index) => {complexArray[index] = forceValue(complexArray[index], object.loop, object.end);});
     return complexArray;
 }
 
@@ -12,7 +12,7 @@ function updateInitialArray(complexArray, rules, arrayRules) {
     rules.forEach(rule => {
         complexArray[rule.index] = verifyRules(complexArray[rule.index], rule);
     });
-    arrayRules.forEach((object, index) => {complexArray[index] = forceValue(complexArray[index], object.loop, object.start, object.end);});
+    arrayRules.forEach((object, index) => {complexArray[index] = forceValue(complexArray[index], object.loop, object.end);});
     return complexArray;
 }
 
@@ -48,17 +48,17 @@ function updateValue(initialValue, action, amount) {
     return initialValue;
 }
 
-function forceValue(initialValue, loop, start, end) {
-    if (initialValue >= start && initialValue <= end) {
+function forceValue(initialValue, loop, end) {
+    if (initialValue >= 0 && initialValue <= end) {
         // console.log("  SilDEBUG: Inital value falls within bounds.");
         return initialValue;
     }
     // console.log("  SilDEBUG: Inital value doesn't fall within bounds.");
     if (loop) {
-        if (initialValue < start) {while (initialValue < start) {initialValue += (end - start + 1);}}
-        if (initialValue > end) {while (initialValue > end) {initialValue -= (end - start + 1);}}
+        if (initialValue < 0) {while (initialValue < start) {initialValue += (end + 1);}}
+        if (initialValue > end) {while (initialValue > end) {initialValue -= (end + 1);}}
     } else {
-        if (initialValue < start) {initialValue = start;}
+        if (initialValue < 0) {initialValue = 0;}
         if (initialValue > end) {initialValue = end;}
     }
     return initialValue;
