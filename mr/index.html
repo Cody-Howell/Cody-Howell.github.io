@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
 
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" href="./images/MR Favicon.svg"> 
   <script src="https://unpkg.com/vis-network@latest/standalone/umd/vis-network.min.js"></script>
   <script src="./script.js" type="module"></script>
 </head>
@@ -13,7 +14,7 @@
 <body>
   <div class="TopLeft">
     <p class="BlueBox">Last Updated: 6/30/23<br>
-      V 1.7.0 - Implement adjustable weights, rewrite Web 1 with adjusted weights, rewrite all JSON's.. again. <a href="https://codydhowell.com/mr_c">Moved into mr/c</a>, or complex Music Randomizer. This website will no longer be updated; it's finished!<br>
+      Future: V 1.7.0 - Implement adjustable weights, rewrite Web 1 with adjusted weights, rewrite all JSON's.. again. This site will host both complex and simple webs. <br>
       V 1.5.0 - Implemented Requests, strings that traverse the web. Box checked verfies the web intends. Debug mode included (checkbox off). 
       Adjusted right column. Moved audioPrep function inside Begin button to force first audio to be loaded. Adjusted Played string output to copypaste into requests. Brought Played font smaller.<br>
       V 1.2.0 - Added a stop button. Changed layout substantially. Added a whole bunch of extra info. Implemented Played info. Implemented Weights.
@@ -39,7 +40,8 @@
     </div>
   </div>
   <div id="results">
-    <a href="https://drive.google.com/drive/folders/1LQNI6AASQ5ndLPA9zIyGUy-Z8frtHyxu?usp=sharing">Link to sheet music</a>
+    <a href="https://drive.google.com/drive/folders/1LQNI6AASQ5ndLPA9zIyGUy-Z8frtHyxu?usp=sharing" target="_blank">Link to sheet music</a><br>
+    <a href="https://codydhowell.com/mr/textbook.html" target="_blank">Link to textbook</a>
     <h2>Request</h2>
     <p>Write a space-separated set of nodes, check the box if you want to follow the network, and it will play them for you.</p>
     <textarea id="stringRequest" style="height: 50px;"></textarea>
@@ -48,7 +50,7 @@
     <button id="textButton">Submit</button>
     <p id="VerificationStatus"></p>
     <h1>Played: </h1>
-    <p id="Played">AU, AV, AY, AH, AJ, AK, AL, AM, AN, AT, AP, AQ, AR, AS, AB, AC, AD, AE, AF, AG, </p>
+    <p id="Played"></p>
   </div>
   <div id="current">
     <h2>Being Played: </h2>
@@ -56,6 +58,7 @@
     <span>Written by:</span>
     <p id="RightArtist">Cody Howell</p>
     <div id="progress-bar"></div>
+    <div id="valueString"></div>
     <p>Next: <span id="nextNode">AB</span></p>
     <p>Other possible nodes:</p>
     <div id="nodeList"></div>

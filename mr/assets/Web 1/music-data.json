@@ -15,8 +15,9 @@
       "artist": "Cody Howell",
       "file": "B.mp3",
       "next": [ 
-        {"name": "AC", "weight": 2}, 
-        {"name": "AD", "weight": 1}
+        {"name": "AC", "index": 0, "weight": [ 2, 0 ]}, 
+        {"name": "AD", "index": 0, "weight": [ 1, 0 ]},
+        {"name": "AN", "index": 0, "weight": [ 0, 1 ]}
       ],
       "lengthToNext": 14969,
       "start": false
@@ -46,9 +47,10 @@
       "artist": "Cody Howell",
       "file": "E.mp3",
       "next": [ 
-        {"name": "AF", "weight": 2}, 
-        {"name": "AH", "weight": 2}, 
-        {"name": "AI", "weight": 1}
+        {"name": "AF", "index": 0, "weight": [ 2, 0 ]}, 
+        {"name": "AH", "index": 0, "weight": [ 2, 0 ]}, 
+        {"name": "AI", "index": 0, "weight": [ 1, 0 ]},
+        {"name": "AN", "index": 0, "weight": [ 0, 1 ]} 
       ],
       "lengthToNext": 14994,
       "start": false
@@ -193,8 +195,8 @@
       "artist": "Cody Howell",
       "file": "R.mp3",
       "next": [ 
-        {"name": "AU", "weight": 1}, 
-        {"name": "AV", "weight": 2}
+        {"name": "AB", "weight": 1}, 
+        {"name": "AE", "weight": 2}
       ],
       "lengthToNext": 9993,
       "start": false
@@ -215,26 +217,6 @@
       "file": "T.mp3",
       "next": [ ],
       "lengthToNext": 27000,
-      "start": false
-    },
-    {
-      "title": "AU",
-      "artist": "Cody Howell",
-      "file": "B.mp3",
-      "next": [ 
-        {"name": "AN", "weight": 1}
-      ],
-      "lengthToNext": 14969,
-      "start": false
-    },
-    {
-      "title": "AV",
-      "artist": "Cody Howell",
-      "file": "E.mp3",
-      "next": [ 
-        {"name": "AN", "weight": 1}
-      ],
-      "lengthToNext": 14994,
       "start": false
     }
   ]

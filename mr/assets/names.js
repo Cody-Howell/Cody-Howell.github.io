@@ -3,7 +3,53 @@ const names = [
         name: 'Web 1', 
         info: `Inital web I created. I'm happy about where it began, but the ratio of stuff I like is maybe 5:1, dislike-like.`,
         author_route: 'AA AB AC AK AE AH AM AN AO AR AU AN AO AS AT', 
-        seed: 2
+        seed: -3,
+        complex: {
+            setArray: [ 0, 0 ],
+            rules: {
+                init: [
+                    {
+                        index: 1,
+                        action: "increment",
+                        amount: 5,
+                        condition: {
+                            "dayOfWeek": 4
+                        }
+                    }
+                ],
+                running: [
+                    {
+                        index: 0,
+                        action: "set",
+                        amount: 1,
+                        condition: {
+                            "visited": "AN"
+                        }
+                    },
+                    {
+                        index: 1,
+                        action: "set",
+                        amount: 1,
+                        condition: {
+                            "randomChanceBelow": 0.9
+                        }
+                    }
+                ]
+            },
+            arrayRules: [
+                {
+                    start: 0,
+                    end: 1,
+                    loop: false
+                },
+                {
+                    start: 1,
+                    end: 5,
+                    loop: true
+                }
+
+            ]
+        }
     },
     {   
         name: 'Web 2',  

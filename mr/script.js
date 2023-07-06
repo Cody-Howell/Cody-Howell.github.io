@@ -1,19 +1,27 @@
 var currentTitle, currentNum, nextTitle, nextNum, nextSelectedNum, nodes, edges, musicData, playedString, userNum, playedCount;
 var prevNum = -1;
 var webChoice = 0;
+var complexWeb = false;
 var audio = []; 
 var start = [];
 var timeouts = [];
+var nodeArray = [];
+var complexArray = [];
 var userAudio = []; // Lots more variables
 
 import {names} from "./assets/names.js" // Import function for modules!
+import { updateComplexArray, updateInitialArray } from "./rules.js"; // Rules are complex and numerous enough they should get their own file. 
 
 // Creates option select in the container
 var selectElement = document.getElementById("nameSelector");
 for (var i = 0; i < names.length; i++) {
   var option = document.createElement("option");
   option.value = i;  // The value is the index
-  option.text = names[i].name;  // The displayed text is the name
+  if ('complex' in names[i]) {
+    option.text = `${names[i].name} (C)`
+  } else {
+    option.text = names[i].name;  // The displayed text is the name
+  }
   selectElement.appendChild(option);
 }
 selectElement.addEventListener("change", function() {
@@ -35,8 +43,8 @@ submitText.addEventListener('click', function() {
 
   if (verify) {
     var followsPath = verifySequence(musicData, string);
-    console.log(musicData);
-    console.log(string);
+    // console.log(musicData);
+    // console.log(string);
 
     if (followsPath) {
       userConfirmation.innerHTML = `True! Press Begin.`;
@@ -81,25 +89,35 @@ async function startup() {
   
   audio = [];
   start = [];
+  complexArray = [];
   playedString = "";
+  playedCount = 0;
+  complexWeb = false;
   
   var placeholderText = document.querySelector("#stringRequest"); // author_route defined in assets/names.js
   placeholderText.placeholder = names[webChoice].author_route;
   placeholderText.value = names[webChoice].author_route;
   
-  var filepath = `./assets/${names[webChoice].name}/music-data.json`; // Fetches relatice file structure, changes with webChoice.
+  var filepath = `./assets/${names[webChoice].name}/music-data.json`; // Fetches relative file structure, changes with webChoice.
   await fetch(filepath) // I guess this works. 
   .then(response => response.json())
   .then(data => musicData = data);
+
+  if ('complex' in names[webChoice]){
+    console.log(`  SilDEBUG: Is truly complex.`);
+    complexWeb = true;
+    complexArray = [...names[webChoice].complex.setArray];
+    complexArray = updateInitialArray(complexArray, names[webChoice].complex.rules.init, names[webChoice].complex.arrayRules);
+  }
+
   
   loadTable();
-  // prepareAudio was moved inside button. 
   
   currentNum = -1;
   nextNum = start[Math.floor(Math.random() * start.length)];
   nextTitle = musicData[nextNum].title;
   nextSelectedNum = -1;
-  updateRightColumn(nextTitle, 'N/A', musicData[nextNum].artist, []);
+  updateRightColumn(nextTitle, 'N/A', musicData[nextNum].artist, [], complexArray);
   
   // Added a lot here. Begin button holds details, once pressed, enables stop button, prepares audio AFTER hitting play
   // so the website scrapers don't have to download a bunch of audio when making snapshots (I've been using that doc).
@@ -150,15 +168,33 @@ function loadTable() {
       music.next.forEach((nextNode) => {
           // Get the index of the nextNode from the musicData array
           let toIndex = musicData.findIndex(item => item.title === nextNode.name);
-          if (toIndex != -1) {
-              let edge = {
-                  from: index,
-                  to: toIndex,
-                  value: nextNode.weight,
-                  arrows: {to: {enabled: true, type: "arrow"}},
-                  color: "#000000"
-              };
-              edgeArray.push(edge);
+          // If index is implemented (weights change), calculate the weight and create the node. 
+          if (toIndex != -1 && 'index' in nextNode) {
+            // console.log(nextNode);
+            let dashesValue;
+            let weight = nextNode.weight[complexArray[nextNode.index]];
+            if (weight === 0) { dashesValue = true }
+            else { dashesValue = false }
+            let edge = {
+              from: index,
+              to: toIndex,
+              value: weight,
+              arrows: {to: {enabled: true, type: "arrow"}},
+              dashes: dashesValue,
+              color: "#000000"
+            };
+            edgeArray.push(edge);
+          }
+          else if (toIndex != -1) {
+            let edge = {
+                from: index,
+                to: toIndex,
+                value: nextNode.weight,
+                arrows: {to: {enabled: true, type: "arrow"}},
+                dashes: false,
+                color: "#000000"
+            };
+            edgeArray.push(edge);
           }
       });
   });
@@ -231,6 +267,8 @@ function prepareAudio() {
 
 function playNext() {
   console.log('  EisDEBUG: playNext(); nextNum is ' + nextNum);
+
+  playedCount++;
   
   if (userAudio[userNum] !== undefined) { // If loop for userAudio request, else (or after) goes into randomness again. 
     audio[userAudio[userNum]].play();
@@ -288,9 +326,7 @@ function playNext() {
         nextTitle = musicData[currentNum].next[nextSelectedNum].name;
         
         for(let i = 0; i < musicData.length; i++) {
-          // console.log(`      EisDEBUG: musicData[${i}].title is ${musicData[i].title}`);
           if(musicData[i].title == nextTitle) {
-            // console.log(`    EisDEBUG: found that musicData[${i}].title is ${musicData[i].title} and matches nextTitle`);
             nextNum = i;
             i = musicData.length;
           }
@@ -307,6 +343,14 @@ function playNext() {
   console.log(`    EisDEBUG: currentNum is ${currentNum}, currentTitle is ${currentTitle}, ` +
   `nextNum is ${nextNum}, nextTitle is ${nextTitle}, prevNum is ${prevNum}, and nextSelectedNum is ${nextSelectedNum}`);
   
+  updatePlayString(currentTitle);
+  
+  if (complexWeb) {
+    var prevArray = [...complexArray]; // Check if anything was changed in the function. 
+    complexArray = updateComplexArray(complexArray, names[webChoice].complex.rules.running, names[webChoice].complex.arrayRules, nodeArray, playedCount);
+    if (JSON.stringify(complexArray) !== JSON.stringify(prevArray)) {loadTable();}
+  } // Placed before 
+  
   if (prevNum > -1){ //Place to color previous, technical for a number of reasons. Finding if prev was a start node for green, and if you're just starting, it can be difficult. 
     var prevColor;
     switch(musicData[prevNum].start) {
@@ -317,31 +361,32 @@ function playNext() {
           prevColor = "#DDDDDD";
           break;
         }
-      nodes.update({id: prevNum, color: prevColor});
+        nodes.update({id: prevNum, color: prevColor});
+      }
+      prevNum = currentNum;
+      
+      if (nextTitle !== "N/A") {
+        musicData.findIndex(obj => obj.title === nextTitle);
+        nodes.update({id: nextNum, color: '#e0d679'});
+      }
+      nodes.update({id: currentNum, color: '#5e71c4'}); 
+      
+      
+      updateRightColumn(currentTitle, nextTitle, musicData[currentNum].artist, musicData[currentNum].next, complexArray);
+      
+      
     }
-    prevNum = currentNum;
     
-    if (nextTitle !== "N/A") {
-      musicData.findIndex(obj => obj.title === nextTitle);
-      nodes.update({id: nextNum, color: '#e0d679'});
-    }
-    nodes.update({id: currentNum, color: '#5e71c4'}); 
+    
+// Functions to adjust things, not key functionality
       
-    updateRightColumn(currentTitle, nextTitle, musicData[currentNum].artist, musicData[currentNum].next);
-    updatePlayString(currentTitle);
-    // Insert function for updating node weights via rules
-        
-}
-      
-      
-      // Functions to adjust things, not key functionality
-      
-function updateRightColumn(current, next, artist, nextList) {
+function updateRightColumn(current, next, artist, nextList, complexArray = []) {
   var currentNode = document.querySelector("#current .largeBold"); // Things in the column to update
   var nextNode = document.querySelector("#nextNode");
   var artistLine = document.querySelector("#RightArtist");
   var nodeList = document.querySelector("#nodeList");
   var longNodeList = document.querySelector("#secondNodeList"); // Second order down list; all nodes from all possible current nodes. 
+  var valueArray = document.querySelector("#valueString");
 
   if (next !== "N/A"){
     let nextNames = [];
@@ -370,12 +415,22 @@ function updateRightColumn(current, next, artist, nextList) {
     node.innerHTML = `${item.name} (${item.weight})`; // Can see the weight in first-order next nodes. 
     nodeList.appendChild(node);
   });
+
+  if (complexArray) {
+    valueArray.innerHTML = "";
+    var arrayIntoString = "";
+    complexArray.forEach((value) => {
+      arrayIntoString += value + " ";
+    });
+    valueArray.innerHTML = arrayIntoString;
+  }
 }
 
 function updatePlayString(current) {
   var playNode = document.querySelector("#Played");
 
   playedString += current + " "; // Current is a global variable that can be read elsewhere.
+  nodeArray.push(current);
 
   playNode.innerHTML = `${playedString}`;
 }
@@ -426,17 +481,34 @@ function simulateProgress(totalTime) {
   }
 };
 
-function weightedRandomIndex(arr) {
-  let totalWeight = arr.reduce((accum, item) => accum + item.weight, 0); //ChatGPT function to pick via weight
-  let randomNum = Math.random() * totalWeight;
+function weightedRandomIndex(array) {
+  let totalWeight = 0;
+  
+  for(let i = 0; i < array.length; i++) {
+    if('index' in array[i] && Array.isArray(array[i].weight)){
+      let index = array[i].index;
+      if (index < complexArray.length) {
+        totalWeight += array[i].weight[complexArray[index]];
+      }
+    }
+    else if('weight' in array[i]){
+      totalWeight += array[i].weight;
+    }
+  }
 
-  for(let i = 0; i < arr.length; i++) {
-      if (randomNum <= arr[i].weight) {
+  let randomNum = Math.random() * totalWeight;
+  for(let i = 0; i < array.length; i++) {
+      let weight = ('index' in array[i] && Array.isArray(array[i].weight)) 
+                  ? array[i].weight[complexArray[array[i].index]] 
+                  : array[i].weight;
+      if (randomNum <= weight) {
           return i;
       }
-      randomNum -= arr[i].weight;
+      randomNum -= weight;
   }
 }
+
+
 
 function secondsToMS(num){
   let returnValue = num / 1000;

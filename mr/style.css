@@ -9,7 +9,7 @@ body {
   display: grid;
   grid-template-areas: "A A D"
                        "C B D";
-  grid-template-columns: 150px 1fr 200px;
+  grid-template-columns: 180px 1fr 200px;
   grid-template-rows: 100px 1fr;
   gap: 7px;
   align-items: center;
