@@ -110,7 +110,7 @@
         <h3 id="ch2 1 3">2.1.3 Song Themes</h3>
         <p>My last listed theme is One Night Down, which is a piano solo I wrote with this melody throughout most of the piece: </p>
         <img src="./images/One Night Down Melody.png">
-        <p>My right hand is doing this 3-bar phrase idea, which is slightly off kilter. I variated on this theme by using layering (<a href="ch13 1">13.1</a>)</p>
+        <p>My right hand is doing this 3-bar phrase idea, which is slightly off kilter. I variated on this theme by using layering (<a href="#ch12 1">12.1</a>)</p>
 
         <h2 id="ch2 2">2.2 Subthemes</h2>
         <p>Subthemes are smaller boxes within Themes. Smaller webs with less than 50 nodes will likely have subthemes that could be indistinguishable from branches; these ideas are, again, only to help you conceptualize your web and where things might be added. </p>
@@ -155,11 +155,11 @@
         <h2 id="ch3 2">3.2 Complex</h2>
         <h3 id="ch3 2 1">3.2.1 Bypass</h3>
         <img src="./images/Bypass.png">
-        <p>The Bypass usually happens in the development of the layers, and where possible, you can bypass one or more nodes that introduce new ideas slowly, just getting to the point where more ideas are developed. <br> In this image, B can go to C, or it can bypass C and go directly to D.</p>
+        <p>The Bypass usually happens in the development of the layers, and where possible, you can bypass one or more nodes that introduce <a href="#ch12 1">new ideas slowly</a>, just getting to the point where more ideas are developed. <br> In this image, B can go to C, or it can bypass C and go directly to D.</p>
 
         <h3 id="ch3 2 2">3.2.2 Double Bypass / Multi Bypass</h3>
         <img src="./images/Double Bypass.png">
-        <p>Like you can do single Bypasses, you can put them in series to create a Double Bypass, or any number in a row to create Multi Bypasses. In any given length of Bypasses, the ratio of length from max to min will be around 2/3rds. <br> Here, the shortest path we can have goes A -> B -> D -> F, using 4 nodes and bypassing the other 2. The longest path will follow the alphabet, using 6 nodes. </p>
+        <p>Like you can do single Bypasses, you can put them in series to create a Double Bypass, or any number in a row to create Multi Bypasses. For example, in this image there are 3; B bypassing C, C bypassing D, and D bypassing E. In any given length of Bypasses, the ratio of length from max to min will be around 2/3rds. <br> Here, the shortest path we can have goes A -> B -> D -> F, using 4 nodes and bypassing the other 2. The longest path will follow the alphabet, using 6 nodes. </p>
 
         <h3 id="ch3 2 3">3.2.3 Fakeout</h3>
         <img src="./images/Fakeout.png">
@@ -285,9 +285,25 @@
         <hr>
 
         <h1 class="sectionIntro">Section 2 - Music Web Composition</h1>
+        <p>This will be what webs are and how to define their characteristics. It will also cover some applications. If you're looking for ideas to help you compose, please visit <a href="#ch12">chapter 12</a>.</p>
+
         <h1 id="ch6">Chapter 6 - Linear Webs</h1>
+        <h2 id="ch6 1">6.1 Classification</h2>
+        <p>As discussed at the start of this book, a Linear Web must have a start and end node. That is the only requirement. If it has 1 start and 1 end node, it is a True web, otherwise it is not. If it doesn't have anywhere it can loop back inside itself, it is a Static web, otherwise it is Non-Static. <br>
+        The 4 ways a web can be classified is True Static, Static, True Non-Static, and Non-Static. </p>
+
+        <h2 id="ch6 2">6.2 Applications</h2>
+        <h3 id="ch6 2 1">6.2.1 Pop Vocal</h3>
+        <p>A pop vocal song could make an interesting web. You start at one point, and as you start to introduce voices and the ideas of what you're singing about, you could have nodes with different lyrics to them, so each time they go through the web you're telling a different story. Or you could keep the lyrics the same on all runs and just have different layers, styles, or harmonies coming in and out through the nodes. This web would probably be best as a True Static.</p>        
 
         <h1 id="ch7">Chapter 7 - Loop/Infinite Webs</h1>
+        <h2 id="ch7 1">7.1 Classification</h2>
+        <p>A Loop web currently has no fancy definitions, like True or Static. These webs don't have any endpoint, though if you make it a <a href="#ch8">Variable Weight web</a> you could make it so that once the user interacts with it, for example tells them they want the web to stop, the weights will adjust and they'll be guided to the nearest ending node. <br>
+        Though that's more of an application; for classification, if it doesn't stop when playing, it is a Loop or Infinite web. </p>
+
+        <h2 id="ch7 2">7.2 Applications</h2>
+        <h3 id="ch7 2 1">7.2.1 Radio</h3>
+        <p>Radio seems like a rather obvious choice for me to advocate for. Whenever I listen to music stations, I either hear music that was playing a decade and a half ago, or repeats the same hour that I heard a few hours ago on the same station. A music web designed for task and broadcasting out on a station would be a very unique challenge for composers and interesting to see the public opinion on. </p>
 
         <h1 id="ch8">Chapter 8 - Variable Weight Webs</h1>
         <p>This chapter will introduce a variety of ideas that you can use to change the webs’ weights given a preset rule that you define. I’ll start by describing a few webs that use this technique in particular (and perhaps leave further research as an exercise for the reader), then introduce the new data you need to input, how to interact with it, and at the end a dictionary of all the rules implemented into the website. <br>
@@ -409,11 +425,11 @@
 
         <h2 id="ch8 9">8.9 Dictionary of Conditions</h2>
         <p>This is a dictionary of all the rules coded into the website that you have access to. The first table is initial rules, so it checks once a web is initialized, and then never during the web. The second table has a list of running checks, so every time the next node is chosen, it checks the rules and verifies if any variables should change.</p>
-        <p>In the condition object, all these will be written in the style of: leftRule: “value”. For the first example in Initial rules, the object would be written as: </p>
+        <p>In the condition object, all these will be written in the style of: "leftRule": “value”. For the first example in Initial rules, the object would be written as: </p>
         <pre class="code-interface">
             <code>
                 <span class="line-number">1</span>condition: {
-                <span class="line-number">2</span>    <span class="property">"dayOfWeek"</span>: <span class="number">6</span>
+                <span class="line-number">2</span>    <span class="property">"dayOfWeek"</span>: <span class="number">4</span>
                 <span class="line-number">3</span>}
             </code>
         </pre>
@@ -480,7 +496,7 @@
             </tr>
             <tr>
                 <td>userInput</td>
-                <td>Enables a checkbox that the user presses to adjust a binary variable on the website. Can still perform all actions. 1 means checked.<br>
+                <td>Enables a checkbox that the user presses to adjust a binary variable on the website. Can still perform all actions, though it performs that action every time it changes nodes and finds the box ticked. 1 means checked. Future update: allowing multiple user buttons.<br>
                     “userInput”: 1 
                     </td>
             </tr>
@@ -498,9 +514,10 @@
         </table>
 
         <h1 id="ch9"> Chapter 9 - Applications of Music Webs</h1>
-        
-        <h2 id="ch9 3">9.3 Radio</h2>
-        <p>Radio seems like a rather obvious choice for me to advocate for. Whenever I listen to music stations, I either hear music that was playing a decade and a half ago, or repeats the same hour that I heard a few hours ago on the same station. A music web designed for task and broadcasting out on a station would be a very unique challenge for composers and interesting to see the public opinion on. </p>
+        <p>"Designed for task."</p>
+
+        <h2 id="ch9 1">9.1 Video Games</h2>
+        <p>I believe this is where this idea was spawned from, walking around in a game world, having things around you interact with the music that's playing and smoothly transitioning everywhere; from plains to mountain to boss battle. A music web designed for task for a project this large with everything that it would be amazing to do would be very difficult, but the result could be magnificent.</p>
 
         <h1 id="ch10">Chapter 10 - Webbing with other "Webbers" (Collaboration)</h1>
         <p>Every composer has a different style of writing. People will write for different instruments, as well as different styles such as more Baroque style or more Romantic or even Modern writing styles.</p>
@@ -509,7 +526,7 @@
 
         <hr>
 
-        <h1 class="sectionIntro">Section 3 - Composition Basics</h1>
+        <h1 class="sectionIntro">Section 3 - The Third Part</h1>
         <h1 id="ch11">Chapter 11 - Inspiration</h1>
         <p>I have no doubt that there are countless composers that would love to know how to come up with good ideas and be able to iterate and develop over them. </p>
         <p>I am not the person for you. I will just cover a few ways that you might come up with new ideas to write about. </p>
@@ -527,16 +544,50 @@
 
         <h2 id="ch11 2">11.2 Music through Art</h2>
         <p>I believe there is merit to looking at a painting, or a landscape in real life, or reading a poem, and asking, “How does this make me feel? How would I express that feeling to someone else?” It is perfectly okay if you have no idea how you might achieve that.</p>
-        <p>So, try this exercise. There are two aspects of the music I want you to look at. First, think of what the left hand will be doing, the accompaniment pattern. Is it something like <a href="https://youtu.be/ac7ov7e2PWw?t=23">Heart and Soul</a>? Or is it something more like <a href="https://www.youtube.com/watch?v=137YvPWp0jI">Midna’s Lament</a>? The direction, speed, and tonality of your accompaniment will decide the basis for the melody. </p>
+        <p>So, try this exercise. There are two aspects of the music I want you to look at. First, think of what the left hand will be doing, the accompaniment pattern. Is it something like <a href="https://youtu.be/ac7ov7e2PWw?t=23">Heart and Soul</a>? Or is it something more like <a href="https://www.youtube.com/watch?v=137YvPWp0jI">Midna’s Lament</a>? The direction, speed, and tonality of your accompaniment will decide the basis for the melody. See <a href="#ch15">Accompaniment Patterns</a> a bit later.</p>
         <p>Second, sit at a piano (or something like MuseScore’s virtual piano, however bad). Go through all of the intervals (dictionary at <a>somewhere</a>), and think of how they make you feel, what emotions or ideas they generate in your mind. Catalog them, if necessary. For me, I love the sound that a Major 7th interval brings, and I use it almost anywhere I can. It’s a bit of a shame that some find it almost minor. But I’m writing music for me, and so should you write for yourself. <br>
-            Anyways, now you have an art piece or poem that is inspiring you, and a list of intervals with their descriptions. Match them together; say I have a happy piece of art and I enjoy the Perfect 5th. I have an accompaniment pattern; how does it feel if I just repeat the root and a P5 above while the left hand plays? What’s my next favorite interval? How would I add that in? <br>
-            What would it sound like to sing a solo over top of what I'm playing right now? At this point, I’d recommend putting what you have into a software that plays it back to you or recording it so you can focus on the melody. What should this solo be? Well, what’s my favorite interval? What if I repeat it? What if I extend it; that is, start at the root, go up that interval, then continue going up from the note you land on? How does it sound to wiggle on the notes above and below these intervals? 
-            </p>
+        Anyways, now you have an art piece or poem that is inspiring you, and a list of intervals with their descriptions. Match them together; say I have a happy piece of art and I enjoy the Perfect 5th. I have an accompaniment pattern; how does it feel if I just repeat the root and a P5 above while the left hand plays? What’s my next favorite interval? How would I add that in? <br>
+        What would it sound like to sing a solo over top of what I'm playing right now? At this point, I’d recommend putting what you have into a software that plays it back to you or recording it so you can focus on the melody. What should this solo be? Well, what’s my favorite interval? What if I repeat it? What if I extend it; that is, start at the root, go up that interval, then continue going up from the note you land on? How does it sound to wiggle on the notes above and below these intervals? 
+        </p>
         <p>A lot of this will come with experience. If you can find art that you enjoy and find notes that match how you feel about the art, I’m confident that you can create a piece that expresses what you want it to. </p>
 
         <h2 id="ch11 3">11.3 Music through Chance</h2>
         <p>However, all else failing or otherwise turning up unfruitful, we can turn to random chance to create something from scratch, either to inspire us for the above or to use as the piece itself. </p>
         <p>This has been developed in 12-tone music already, the composer can decide how much of the work will be decided by chance, even up to the entire piece. It is not impossible. </p>
+        <p>But in my experience, it isn't <i>good</i>. So in a later version of this book, I'll have some randomizers set up here for things like time signature, key, melody notes, and accompaniment pattern. </p>
+
+        <h1 id="ch12">Chapter 12 - Techniques for Writing a Music Web</h1>
+        <p>This chapter will detail some of the ways we've found to start with an idea and move it through to the next idea. For now, there's 1 tip.</p>
+
+        <h2 id="ch12 1">12.1 Layering</h2>
+        <p>Layering was used in at least the first three webs, and for me seems to most consistent way to get more music and nodes out of an idea. <br>
+        Layering is the process of adding new instruemnts/lines to make the composition seem more full. For an example, let's take a look at a node we saw earlier, with the two nodes before it. </p>
+        <img src="./images/Node 2 AI.png"> <hr width="50%">
+        <img src="./images/Node 2 AJ.png"> <hr width="50%">
+        <img src="./images/Node 2 AK.png">
+        <p>I don't change anything that's come before it, but I add new ideas that come to me as more instruments come in, and now what was one melody and one node is now 3.</p>
+
+        <br>
+        <h1>Dictionaries</h1>
+        <p>The next few chapters will have a bit of explanation, but will more just have a sprawling dictionary to look through for examples and variations of each thing. </p>
+
+        <h1 id="ch13">Chapter 13 - Time Signatures</h1>
+        <p>This gallery will show the time signature to the left, and inside will be either eighth or sixteenth notes showing the accent patterns. They can be written tied as groups of 1, 2, 3, or 4, but 2 and 3 are the most common to feel. 5/8 can be written as 4 + 1, but it's much more common to see 2 + 3 or 3 + 2. </p>
+        <h2 id="ch13 1">13.1 Common Time Signatures</h2>
+        <div class="imageGallery">
+            <img src="./images/TS A.png">
+            <img src="./images/TS B.png">
+            <img src="./images/TS C.png">
+            <img src="./images/TS D.png">
+            <img src="./images/TS E.png">
+            <img src="./images/TS F.png">
+        </div>
+        
+        <h1 id="ch14">Chapter 14 - Chords and Scale Degrees</h1>
+        <div class="imageGallery"></div>
+
+        <h1 id="ch15">Chapter 15 - Accompaniment Patterns</h1>
+        <div class="imageGallery"></div>
     </div>
 </body>
 </html>
