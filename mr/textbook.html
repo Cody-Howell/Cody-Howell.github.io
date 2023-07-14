@@ -305,8 +305,10 @@
         <h3 id="ch7 2 1">7.2.1 Radio</h3>
         <p>Radio seems like a rather obvious choice for me to advocate for. Whenever I listen to music stations, I either hear music that was playing a decade and a half ago, or repeats the same hour that I heard a few hours ago on the same station. A music web designed for task and broadcasting out on a station would be a very unique challenge for composers and interesting to see the public opinion on. </p>
 
+        <h1 class="sectionIntro">Section 2.5 - Complex Music Webs</h1>
+
         <h1 id="ch8">Chapter 8 - Variable Weight Webs</h1>
-        <p>This chapter will introduce a variety of ideas that you can use to change the webs’ weights given a preset rule that you define. I’ll start by describing a few webs that use this technique in particular (and perhaps leave further research as an exercise for the reader), then introduce the new data you need to input, how to interact with it, and at the end a dictionary of all the rules implemented into the website. <br>
+        <p>This chapter will introduce a variety of ideas that you can use to change the webs’ weights given a preset rule that you define. I’ll start by describing a few webs that use this technique in particular (and perhaps leave further research as an exercise for the reader), as well as some specific node interactions you can now have, then introduce the new data you need to input, how to interact with it, and at the end a dictionary of all the rules implemented into the website. <br>
         If you have an idea for a specific rule you want to implement in your web, message me and we can work on it. </p>
 
         <h2 id="ch8 1">8.1 One-Theme Webs</h2>
@@ -314,6 +316,21 @@
         <p>One-Theme webs are offshoots of Linear Webs that have a specific focus. For now, this web is conceptualized with one input node, an array of variations that all loop within one another, and an exit node.</p>
         <p>This web was created with the idea of being in a boss room in a video game; generally the theme stays pretty consistent, and this attempts to just variate it a bit from minute to minute. These inner nodes should probably be long in comparison to the length of nodes from a normal web; perhaps up to a minute or two long for each one.</p>
         <p>Here, the web will only move on to J when the program changes the weights and allows it to move on, when you’re finished with the boss, or the user did something to initiate a change.</p>
+
+        <h2 id="ch8 5">8.5 New Node Interactions</h2>
+        <p>Having a new set of rules to play with, there are a few specific node layouts we can look at for new ways to build the web.</p>
+
+        <h3 id="ch8 5 1">8.5.1 Small Loops</h3>
+        <img src="./images/Small Loop.png">
+        <p>In a normal web, this small loop could be played 0 times or 1000 times. With a complex web, you can make a rule that disables going backwards after a certain series is followed. Hence, the dotted line (which means a weight of 0). </p>
+
+        <h3 id="ch8 5 2">8.5.2 One-Ways</h3>
+        <img src="./images/One Ways.png">
+        <p>One ways are specific sets of rules that allow you to start from either end of the web and go to the other side without being caught in a bunch of smaller loops, like the above. </p>
+
+        <h4 id="ch8 5 2 1">8.5.2.1 Multi-Ways</h4>
+        <img src="./images/Multi Ways.png">
+        <p>This can be expanded on (with a much more complex set of rules) so that you can go in multiple directions, including one (or possibly more :O ) hub nodes that branch into other directions, without going backwards. </p>
 
         <h2 id="ch8 7">8.7 New Data Rules</h2>
         <p>There are two things you need to implement when creating a Variable Weight web. First, on any nodes that will be adjusted by variables in the array, you need to slightly adjust the structure. In the “Names” object, you’ll also have to add in some more information, defining all the rules you want to implement.</p>
@@ -471,6 +488,12 @@
                     </td> 
             </tr>
             <tr>
+                <td>previous</td>
+                <td>Checks if the previous node was a specific node. <br>
+                    “previous”: "AA"
+                    </td>
+            </tr>
+            <tr>
                 <td>sequenceMatches</td>
                 <td>Checks if the most recent played nodes match the sequence. <br>
                     “sequenceMatches”: [“AA”, “AB”, “AC”]
@@ -486,6 +509,18 @@
                 <td>totalCountExceeds</td>
                 <td>Checks the total number of nodes played already, and activates if that count is higher than the given number. <br>
                     “totalCountExceeds”: 15
+                    </td>
+            </tr>
+            <tr>
+                <td>recentNodeCount (NI)</td>
+                <td>Counts the previous 10 nodes, checks if count is what you specify. Uses an array to check node and count. <br>
+                    “recentNodeCount”: [ "AA", 5 ]
+                    </td>
+            </tr>
+            <tr>
+                <td>recentNodeExceeds (NI)</td>
+                <td>Counts the previous 10 nodes, checks if count is above what you specify. Uses an array to check node and count. <br>
+                    “recentNodeCount”: [ "AA", 3 ]
                     </td>
             </tr>
             <tr>
@@ -506,8 +541,8 @@
         <h3 id="ch8 9 3">8.9.3 Complex Rules</h3>
         <table>
             <tr>
-                <td>visited-AND</td>
-                <td>Checks if you have visited both nodes in the array. Due to programming technicalities, this rule will override other rules each time once it's active.<br>
+                <td>visited-AND (NI)</td>
+                <td>Checks if you have visited both nodes in the array. Due to how it's programmed, it will return true every time one of the nodes is visited, as long as both have been visited.<br>
                     “visited-AND”: [“AA”, “AB”]
                     </td>
             </tr>

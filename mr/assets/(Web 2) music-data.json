@@ -284,8 +284,8 @@
       "artist": "Cody Howell",
       "file": "W0002AABC.mp3",
       "next": [ 
-        {"name": "BB", "weight": 2}, 
-        {"name": "BD", "weight": 3}
+        {"name": "BB", "index": 0, "weight": [ 2, 0 ]}, 
+        {"name": "BD", "weight": 3 }
       ],
       "lengthToNext": 18016,
       "start": false

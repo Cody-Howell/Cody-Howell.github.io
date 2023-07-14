@@ -28,6 +28,7 @@ function verifyRules(initialValue, rule, nodeArray = [], playedCount = 0) {
     if ('hourBelow' in rule.condition) {if (hour <= rule.condition.hourBelow) {initialValue = updateValue(initialValue, rule.action, rule.amount);}}
     if ('randomChanceBelow' in rule.condition) {if (randomNum < rule.condition.randomChanceBelow) {initialValue = updateValue(initialValue, rule.action, rule.amount);}}
     if ('visited' in rule.condition) {if (rule.condition.visited === nodeArray[nodeArray.length - 1]) {initialValue = updateValue(initialValue, rule.action, rule.amount);}}
+    if ('previous' in rule.condition) {if ((rule.condition.previous === nodeArray[nodeArray.length - 2]) && (nodeArray.length > 1)) {initialValue = updateValue(initialValue, rule.action, rule.amount);}}
     if ('sequenceMatches' in rule.condition) {if (checkRecentNodesMatch(nodeArray, rule.condition.sequenceMatches)) {initialValue = updateValue(initialValue, rule.action, rule.amount);}}
     if ('sequenceBroken' in rule.condition) {if (!checkRecentNodesMatch(nodeArray, rule.condition.sequenceBroken)) {initialValue = updateValue(initialValue, rule.action, rule.amount);}}
     if ('totalCountExceeds' in rule.condition) {if (playedCount > rule.condition.totalCountExceeds) {initialValue = updateValue(initialValue, rule.action, rule.amount);}}

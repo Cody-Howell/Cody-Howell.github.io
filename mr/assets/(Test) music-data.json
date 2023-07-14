@@ -1,0 +1,406 @@
+[
+  {
+    "title": "AA",
+    "artist": "Cody Howell",
+    "file": "W0002AAAA.mp3",
+    "next": [ 
+      {"name": "AB", "weight": 2}, 
+      {"name": "BG", "weight": 1}
+    ],
+    "lengthToNext": 6378,
+    "start": true
+  },
+  {
+    "title": "AB",
+    "artist": "Cody Howell",
+    "file": "W0002AAAB.mp3",
+    "next": [ 
+      {"name": "AC", "weight": 1},
+      {"name": "BL", "weight": 1}
+    ],
+    "lengthToNext": 6416,
+    "start": false
+  },
+  {
+    "title": "AC",
+    "artist": "Cody Howell",
+    "file": "W0002AAAC.mp3",
+    "next": [ 
+      {"name": "AD", "weight": 1}
+    ],
+    "lengthToNext": 6394,
+    "start": false
+  },
+  {
+    "title": "AD",
+    "artist": "Cody Howell",
+    "file": "W0002AAAD.mp3",
+    "next": [ 
+      {"name": "AE", "weight": 1}
+    ],
+    "lengthToNext": 6461,
+    "start": false
+  },
+  {
+    "title": "AE",
+    "artist": "Cody Howell",
+    "file": "W0002AAAE.mp3",
+    "next": [ 
+      {"name": "AF", "weight": 1}
+    ],
+    "lengthToNext": 12296,
+    "start": false
+  },
+  {
+    "title": "AF",
+    "artist": "Cody Howell",
+    "file": "W0002AAAF.mp3",
+    "next": [ 
+      {"name": "AG", "weight": 2}, 
+      {"name": "AY", "weight": 3}
+    ],
+    "lengthToNext": 11645,
+    "start": false
+  },
+  {
+    "title": "AG",
+    "artist": "Cody Howell",
+    "file": "W0002AAAG.mp3",
+    "next": [ 
+      {"name": "AH", "weight": 3}, 
+      {"name": "AX", "weight": 1},
+      {"name": "AW", "weight": 2}
+
+    ],
+    "lengthToNext": 20029,
+    "start": false
+  },
+  {
+    "title": "AH",
+    "artist": "Cody Howell",
+    "file": "W0002AAAH.mp3",
+    "next": [ 
+      {"name": "AI", "weight": 2}, 
+      {"name": "AJ", "weight": 1}, 
+      {"name": "AZ", "weight": 2}
+    ],
+    "lengthToNext": 30069,
+    "start": false
+  },
+  {
+    "title": "AI",
+    "artist": "Cody Howell",
+    "file": "W0002AAAI.mp3",
+    "next": [ 
+      {"name": "AJ", "weight": 3}, 
+      {"name": "AK", "weight": 2}
+    ],
+    "lengthToNext": 14949,
+    "start": true
+  },
+  {
+    "title": "AJ",
+    "artist": "Cody Howell",
+    "file": "W0002AAAJ.mp3",
+    "next": [ 
+      {"name": "AK", "weight": 2}, 
+      {"name": "BE", "weight": 1}
+    ],
+    "lengthToNext": 15034,
+    "start": false
+  },
+  {
+    "title": "AK",
+    "artist": "Cody Howell",
+    "file": "W0002AAAK.mp3",
+    "next": [ 
+      {"name": "AL", "weight": 1}
+    ],
+    "lengthToNext": 15050,
+    "start": false
+  },
+  {
+    "title": "AL",
+    "artist": "Cody Howell",
+    "file": "W0002AAAL.mp3",
+    "next": [ 
+      {"name": "AM", "weight": 1}
+    ],
+    "lengthToNext": 14976,
+    "start": false
+  },
+  {
+    "title": "AM",
+    "artist": "Cody Howell",
+    "file": "W0002AAAM.mp3",
+    "next": [ 
+      {"name": "AN", "weight": 1}
+    ],
+    "lengthToNext": 15072,
+    "start": false
+  },
+  {
+    "title": "AN",
+    "artist": "Cody Howell",
+    "file": "W0002AAAN.mp3",
+    "next": [ 
+      {"name": "AT", "weight": 1}
+    ],
+    "lengthToNext": 15141,
+    "start": false
+  },
+  {
+    "title": "AO",
+    "artist": "Cody Howell",
+    "file": "W0002AAAO.mp3",
+    "next": [ 
+      {"name": "AP", "weight": 1}
+    ],
+    "lengthToNext": 15274,
+    "start": true
+  },
+  {
+    "title": "AP",
+    "artist": "Cody Howell",
+    "file": "W0002AAAP.mp3",
+    "next": [ 
+      {"name": "AQ", "weight": 1}
+    ],
+    "lengthToNext": 15290,
+    "start": false
+  },
+  {
+    "title": "AQ",
+    "artist": "Cody Howell",
+    "file": "W0002AAAQ.mp3",
+    "next": [ 
+      {"name": "AR", "weight": 1},
+      {"name": "BJ", "weight": 1}
+    ],
+    "lengthToNext": 15237,
+    "start": false
+  },
+  {
+    "title": "AR",
+    "artist": "Cody Howell",
+    "file": "W0002AAAR.mp3",
+    "next": [ 
+      {"name": "AS", "weight": 1}
+    ],
+    "lengthToNext": 15296,
+    "start": false
+  },
+  {
+    "title": "AS",
+    "artist": "Cody Howell",
+    "file": "W0002AAAS.mp3",
+    "next": [ 
+      {"name": "AB", "weight": 1}
+    ],
+    "lengthToNext": 15856,
+    "start": false
+  },
+  {
+    "title": "AT",
+    "artist": "Cody Howell",
+    "file": "W0002AAAT.mp3",
+    "next": [ 
+      {"name": "AP", "weight": 1}
+    ],
+    "lengthToNext": 11488,
+    "start": false
+  },
+  {
+    "title": "AU",
+    "artist": "Cody Howell",
+    "file": "W0002AAAU.mp3",
+    "next": [ 
+      {"name": "AV", "weight": 1}
+    ],
+    "lengthToNext": 9306,
+    "start": true
+  },
+  {
+    "title": "AV",
+    "artist": "Cody Howell",
+    "file": "W0002AAAV.mp3",
+    "next": [ 
+      {"name": "AG", "weight": 1}, 
+      {"name": "AY", "weight": 1}, 
+      {"name": "BF", "weight": 3}
+    ],
+    "lengthToNext": 9376,
+    "start": false
+  },
+  {
+    "title": "AW",
+    "artist": "Cody Howell",
+    "file": "W0002AAAA.mp3",
+    "next": [ 
+      {"name": "AG", "index": 1, "weight": [ 0, 1 ]},
+      {"name": "AY", "index": 1, "weight": [ 0, 1 ]},
+      {"name": "BK", "index": 1, "weight": [ 0, 1 ]}
+    ],
+    "lengthToNext": 2000,
+    "start": false
+  },
+  {
+    "title": "AX",
+    "artist": "Cody Howell",
+    "file": "W0002AAAX.mp3",
+    "next": [ 
+      {"name": "AE", "weight": 1}
+    ],
+    "lengthToNext": 26954,
+    "start": false
+  },
+  {
+    "title": "AY",
+    "artist": "Cody Howell",
+    "file": "W0002AAAY.mp3",
+    "next": [ 
+      {"name": "AH", "weight": 3}, 
+      {"name": "AX", "weight": 2},
+      {"name": "AW", "weight": 2} 
+    ],
+    "lengthToNext": 20128,
+    "start": false
+  },
+  {
+    "title": "AZ",
+    "artist": "Cody Howell",
+    "file": "W0002AAAZ.mp3",
+    "next": [ 
+      {"name": "BA", "weight": 1}
+    ],
+    "lengthToNext": 18026,
+    "start": true
+  },
+  {
+    "title": "BA",
+    "artist": "Cody Howell",
+    "file": "W0002AABA.mp3",
+    "next": [ 
+      {"name": "BB", "weight": 1}
+    ],
+    "lengthToNext": 18058,
+    "start": false
+  },
+  {
+    "title": "BB",
+    "artist": "Cody Howell",
+    "file": "W0002AABB.mp3",
+    "next": [ 
+      {"name": "BC", "weight": 1}
+    ],
+    "lengthToNext": 18032,
+    "start": false
+  },
+  {
+    "title": "BC",
+    "artist": "Cody Howell",
+    "file": "W0002AABC.mp3",
+    "next": [ 
+      {"name": "BB", "index": 0, "weight": [ 2, 0 ]}, 
+      {"name": "BD", "weight": 3 }
+    ],
+    "lengthToNext": 18016,
+    "start": false
+  },
+  {
+    "title": "BD",
+    "artist": "Cody Howell",
+    "file": "W0002AABD.mp3",
+    "next": [ 
+      {"name": "AA", "weight": 1}
+    ],
+    "lengthToNext": 15946,
+    "start": false
+  },
+  {
+    "title": "BE",
+    "artist": "Cody Howell",
+    "file": "W0002AABE.mp3",
+    "next": [ 
+      {"name": "AI", "weight": 3}, 
+      {"name": "AJ", "weight": 2}
+    ],
+    "lengthToNext": 15050,
+    "start": false
+  },
+  {
+    "title": "BF",
+    "artist": "Cody Howell",
+    "file": "W0002AABF.mp3",
+    "next": [ 
+      {"name": "AG", "weight": 3}, 
+      {"name": "AY", "weight": 2}
+    ],
+    "lengthToNext": 10000,
+    "start": false
+  },
+  {
+    "title": "BG",
+    "artist": "Cody Howell",
+    "file": "W0002AABG.mp3",
+    "next": [ 
+      {"name": "BH", "weight": 1}
+    ],
+    "lengthToNext": 12858,
+    "start": false
+  },
+  {
+    "title": "BH",
+    "artist": "Cody Howell",
+    "file": "W0002AABH.mp3",
+    "next": [ 
+      {"name": "BI", "weight": 1}
+    ],
+    "lengthToNext": 12746,
+    "start": false
+  },
+  {
+    "title": "BI",
+    "artist": "Cody Howell",
+    "file": "W0002AABI.mp3",
+    "next": [ 
+      {"name": "AB", "weight": 1}
+    ],
+    "lengthToNext": 12933,
+    "start": false
+  },
+  {
+    "title": "BJ",
+    "artist": "Cody Howell",
+    "file": "W0002AAAA.mp3",
+    "next": [ 
+      {"name": "AQ", "index": 1, "weight": [ 0, 1 ]},
+      {"name": "BK", "index": 1, "weight": [ 0, 1 ]}
+    ],
+    "lengthToNext": 2000,
+    "start": false
+  },
+  {
+    "title": "BK",
+    "artist": "Cody Howell",
+    "file": "W0002AAAA.mp3",
+    "next": [ 
+      {"name": "BJ", "index": 1, "weight": [ 0, 1]},
+      {"name": "BL", "index": 1, "weight": [ 0, 1]},
+      {"name": "AW", "index": 1, "weight": [ 0, 1]}
+    ],
+    "lengthToNext": 2000,
+    "start": false
+  },
+  {
+    "title": "BL",
+    "artist": "Cody Howell",
+    "file": "W0002AAAA.mp3",
+    "next": [ 
+      {"name": "AB", "index": 1, "weight": [ 0, 1 ]},
+      {"name": "BK", "index": 1, "weight": [ 0, 1 ]}
+    ],
+    "lengthToNext": 2000,
+    "start": false
+  }
+]

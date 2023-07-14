@@ -289,6 +289,7 @@ function playNext() {
     currentTitle = musicData[currentNum].title;
     
     timeouts.push(setTimeout(playNext, musicData[currentNum].lengthToNext));
+    // timeouts.push(setTimeout(playNext, 2000)); //Only use when not listening! Used for node testing.
     
     simulateProgress(musicData[currentNum].lengthToNext); 
     
@@ -355,6 +356,7 @@ function playNext() {
     var prevArray = [...complexArray]; // Check if anything was changed in the function. 
     complexArray = updateComplexArray(complexArray, names[webChoice].complex.rules.running, names[webChoice].complex.arrayRules, nodeArray, playedCount);
     if (JSON.stringify(complexArray) !== JSON.stringify(prevArray)) {loadTable();}
+    // console.log(`    SilDEBUG: Updated complex web, possibly. `);
   } // Placed before 
   
   if (prevNum > -1){ //Place to color previous, technical for a number of reasons. Finding if prev was a start node for green, and if you're just starting, it can be difficult. 
