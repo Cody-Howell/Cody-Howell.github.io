@@ -67,8 +67,7 @@
     "file": "W0002AAAG.mp3",
     "next": [ 
       {"name": "AH", "weight": 3}, 
-      {"name": "AX", "weight": 1},
-      {"name": "AW", "weight": 2}
+      {"name": "AX", "weight": 1}
 
     ],
     "lengthToNext": 20029,
@@ -258,8 +257,7 @@
     "file": "W0002AAAY.mp3",
     "next": [ 
       {"name": "AH", "weight": 3}, 
-      {"name": "AX", "weight": 2},
-      {"name": "AW", "weight": 2} 
+      {"name": "AX", "weight": 2}
     ],
     "lengthToNext": 20128,
     "start": false
