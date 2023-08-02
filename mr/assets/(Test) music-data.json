@@ -67,8 +67,8 @@
     "file": "W0002AAAG.mp3",
     "next": [ 
       {"name": "AH", "weight": 3}, 
-      {"name": "AX", "weight": 1}
-
+      {"name": "AX", "weight": 1},
+      {"name": "AW", "index": 3, "weight": [ 2, 0 ]}
     ],
     "lengthToNext": 20029,
     "start": false
@@ -235,8 +235,9 @@
     "artist": "Cody Howell",
     "file": "W0002AAAA.mp3",
     "next": [ 
-      {"name": "AG", "weight": 1},
-      {"name": "AY", "weight": 1}
+      {"name": "AG", "index": 1, "weight": [ 0, 1 ]},
+      {"name": "AY", "index": 1, "weight": [ 0, 1 ]},
+      {"name": "BM", "index": 1, "weight": [ 0, 1 ]}
     ],
     "lengthToNext": 2000,
     "start": false
@@ -257,7 +258,8 @@
     "file": "W0002AAAY.mp3",
     "next": [ 
       {"name": "AH", "weight": 3}, 
-      {"name": "AX", "weight": 2}
+      {"name": "AX", "weight": 2},
+      {"name": "AW", "index": 3, "weight": [ 2, 0 ]}
     ],
     "lengthToNext": 20128,
     "start": false
@@ -381,7 +383,7 @@
     "file": "W0002AAAA.mp3",
     "next": [ 
       {"name": "BL", "weight": 1},
-      {"name": "BM", "weight": 1}
+      {"name": "BM", "index": 3, "weight": [ 1, 0 ]}
     ],
     "lengthToNext": 2000,
     "start": false
@@ -401,7 +403,8 @@
     "artist": "Cody Howell",
     "file": "W0002AAAA.mp3",
     "next": [ 
-      {"name": "AW", "weight": 1}
+      {"name": "AW", "index": 2, "weight": [ 0, 1 ]},
+      {"name": "BK", "index": 2, "weight": [ 0, 1 ]}
     ],
     "lengthToNext": 2000,
     "start": false

@@ -75,7 +75,7 @@ const names = [
         author_route: 'AU AV BF AG AH AZ BA BB BC BB BC BD AA AB AC AD AE AF AY AH AI AJ AK AL AM', 
         seed: 1,
         complex: {
-            setArray: [ 0, 0 ],
+            setArray: [ 0, 0, 0, 0 ],
             rules: {
                 init: [],
                 running: [
