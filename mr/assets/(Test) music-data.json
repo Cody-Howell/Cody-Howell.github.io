@@ -369,23 +369,23 @@
   },
   {
     "title": "BJ",
-    "artist": "Cody Howell",
-    "file": "W0002AAAA.mp3",
+    "artist": "Katie Mayo",
+    "file": "W0002AABJ.mp3",
     "next": [ 
       {"name": "BK", "weight": 1}
     ],
-    "lengthToNext": 2000,
+    "lengthToNext": 25691,
     "start": false
   },
   {
     "title": "BK",
-    "artist": "Cody Howell",
-    "file": "W0002AAAA.mp3",
+    "artist": "Katie Mayo",
+    "file": "W0002AABK.mp3",
     "next": [ 
       {"name": "BL", "weight": 1},
       {"name": "BM", "index": 3, "weight": [ 1, 0 ]}
     ],
-    "lengthToNext": 2000,
+    "lengthToNext": 29039,
     "start": false
   },
   {
