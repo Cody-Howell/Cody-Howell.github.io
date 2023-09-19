@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verilog String Decoder</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    
+        label, input, button, pre {
+            margin-bottom: 10px;
+        }
+    
+        #verilogString {
+            width: 500px; /* Adjust the width as needed */
+        }
+
+        #output {
+            background-color: lightgray;
+            padding: 10px;
+            margin-top: 0;
+        }
+    
+        button {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+</head>
+<body>
+    <label for="name">Enter the Name:</label>
+    <input type="text" id="name" placeholder="Name of Module"><br>
+
+    <div>
+        <h2>Code Interpreter</h2>
+        <p>Use parenthesis, and build up. This outputs a module.</p>
+        <span>( () ) ui interprets to the parenthesis</span> <br>
+        <span>(&) k interprets to And</span> <br>
+        <span>(|) j interprets to Or</span> <br>
+        <span>(~, !) h interprets to Not</span> <br>
+        <span>(^) l interprets to Xor</span> <br>
+        <span>(?) z allows you to adjust it later.</span> <br><br>
+    </div>
+
+    <label for="verilogString">Enter Verilog String:</label>
+    <input type="text" id="verilogString" placeholder="Verilog String"><br><br>
+
+    <pre id="output"></pre>
+
+    <script>
+        // Function to decode the Verilog string
+        function decodeVerilogString() {
+            let name = document.getElementById("name").value;
+            const verilogString = document.getElementById("verilogString").value;
+
+            // Remove spaces and convert to lowercase for the name
+            name = name.replace(/ /g, '_').replace(/\./g, '_').toLowerCase();
+
+            // Replace characters as per your specifications
+            const convertedString = verilogString
+                .replace(/l/g, ' ^ ')
+                .replace(/u/g, '(')
+                .replace(/i/g, ')')
+                .replace(/h/g, '~')
+                .replace(/j/g, ' | ')
+                .replace(/k/g, ' & ')
+                .replace(/1/g, 'x1')
+                .replace(/2/g, 'x2')
+                .replace(/3/g, 'x3')
+                .replace(/4/g, 'x4')
+                .replace(/z/g, ' ? ');
+
+            // Create the Verilog module string
+            const verilogModule = `
+module ${name}(input x0, x1, x2, output f);
+  assign f = ${convertedString};
+endmodule;
+`;
+
+            // Display the result
+            document.getElementById("output").textContent = verilogModule;
+        }
+
+        // Add input event listeners to update in real-time
+        document.getElementById("name").addEventListener("input", decodeVerilogString);
+        document.getElementById("verilogString").addEventListener("input", decodeVerilogString);
+
+        // Initial call to decodeVerilogString
+        decodeVerilogString();
+    </script>
+    
+</body>
+</html>
