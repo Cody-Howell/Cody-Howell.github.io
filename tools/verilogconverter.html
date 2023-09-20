@@ -56,11 +56,11 @@
         <h2>Code Interpreter</h2>
         <p>Use parenthesis, and build up. This outputs a module.</p>
         <span>(x0, x1..) Use numbers to represent variables (1 digit requirement)</span> <br>
-        <span>( () ) ui interprets to the parenthesis</span> <br>
-        <span>(&) k interprets to And</span> <br>
-        <span>(|) j interprets to Or</span> <br>
-        <span>(~, !) h interprets to Not</span> <br>
-        <span>(^) l interprets to Xor</span> <br>
+        <span>( () ) io interprets to the parenthesis</span> <br>
+        <span>(&) l interprets to And</span> <br>
+        <span>(|) k interprets to Or</span> <br>
+        <span>(~, !) j interprets to Not</span> <br>
+        <span>(^) ; interprets to Xor</span> <br>
         <span>(?) z allows you to adjust it later.</span> <br><br>
     </div>
 
@@ -87,12 +87,12 @@
 
             // Replace characters as per your specifications
             const convertedString = verilogString
-                .replace(/l/g, ' ^ ')
-                .replace(/u/g, '(')
-                .replace(/i/g, ')')
-                .replace(/h/g, '~')
-                .replace(/j/g, ' | ')
-                .replace(/k/g, ' & ')
+                .replace(/;/g, ' ^ ')
+                .replace(/i/g, '(')
+                .replace(/o/g, ')')
+                .replace(/j/g, '~')
+                .replace(/k/g, ' | ')
+                .replace(/l/g, ' & ')
                 .replace(/\d/g, match => 'x' + match)
                 .replace(/z/g, ' ? ');
 
