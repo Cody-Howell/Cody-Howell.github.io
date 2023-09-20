@@ -48,9 +48,14 @@
     <label for="name">Enter the Name:</label>
     <input type="text" id="name" placeholder="Name of Module"><br>
 
+    <label for="name">Enter how many input values:</label>
+    <input type="text" id="count" value="2">
+    <span>(starts at 1 for ease of typing)</span><br>
+
     <div>
         <h2>Code Interpreter</h2>
         <p>Use parenthesis, and build up. This outputs a module.</p>
+        <span>(x0, x1..) Use numbers to represent variables (1 digit requirement)</span> <br>
         <span>( () ) ui interprets to the parenthesis</span> <br>
         <span>(&) k interprets to And</span> <br>
         <span>(|) j interprets to Or</span> <br>
@@ -68,10 +73,17 @@
         // Function to decode the Verilog string
         function decodeVerilogString() {
             let name = document.getElementById("name").value;
+            let count = document.getElementById("count").value;
             const verilogString = document.getElementById("verilogString").value;
 
             // Remove spaces and convert to lowercase for the name
             name = name.replace(/ /g, '_').replace(/\./g, '_').toLowerCase();
+
+            let inputString = "";
+            for (let i = 1; (i - 1) < count && (i < 11); i++){
+                if (i === 10) {inputString += "x0, "; break;}
+                inputString += `x${i}, `;
+            }
 
             // Replace characters as per your specifications
             const convertedString = verilogString
@@ -81,15 +93,12 @@
                 .replace(/h/g, '~')
                 .replace(/j/g, ' | ')
                 .replace(/k/g, ' & ')
-                .replace(/1/g, 'x1')
-                .replace(/2/g, 'x2')
-                .replace(/3/g, 'x3')
-                .replace(/4/g, 'x4')
+                .replace(/\d/g, match => 'x' + match)
                 .replace(/z/g, ' ? ');
 
             // Create the Verilog module string
             const verilogModule = `
-module ${name}(input x0, x1, x2, output f);
+module ${name}(input ${inputString}output f);
   assign f = ${convertedString};
 endmodule;
 `;
@@ -100,6 +109,7 @@ endmodule;
 
         // Add input event listeners to update in real-time
         document.getElementById("name").addEventListener("input", decodeVerilogString);
+        document.getElementById("count").addEventListener("input", decodeVerilogString);
         document.getElementById("verilogString").addEventListener("input", decodeVerilogString);
 
         // Initial call to decodeVerilogString
