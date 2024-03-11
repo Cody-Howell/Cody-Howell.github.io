@@ -3,6 +3,10 @@ body, html {
   margin: 0;
   height: 100%;
   overflow: auto;
+  font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #redBox {
@@ -16,6 +20,10 @@ body, html {
   margin: 0;
 }
 
+#redBox ul {
+  max-width: 90%;
+}
+
 #greenBox {
   background-color: rgb(208, 255, 208);
   height: 600px;
@@ -27,11 +35,16 @@ body, html {
 }
 
 #greenBox iframe {
-  border: none;
+  border: 3px solid black;
+  border-radius: 5px;
 }
 
 #blueBox {
   padding: 10px;
   margin: 5px;
   background-color: hsl(239, 63%, 81%);
+}
+
+#blueBox p {
+  max-width: 90%;
 }
