@@ -1,0 +1,37 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+#redBox {
+  padding: 10px;
+  margin: 5px;
+  background-color: rgb(247, 181, 181);
+}
+
+#redBox p {
+  padding: 0;
+  margin: 0;
+}
+
+#greenBox {
+  background-color: rgb(208, 255, 208);
+  height: 600px;
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#greenBox iframe {
+  border: none;
+}
+
+#blueBox {
+  padding: 10px;
+  margin: 5px;
+  background-color: hsl(239, 63%, 81%);
+}

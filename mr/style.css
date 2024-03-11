@@ -8,14 +8,13 @@ body {
   width: 100%;
   margin: 5px;
   display: grid;
-  grid-template-areas: "A A D"
-                       "C B D";
+  grid-template-areas: "C B D";
   grid-template-columns: 180px 1fr 200px;
-  grid-template-rows: 100px 1fr;
   gap: 7px;
   align-items: center;
   padding: 1px;
   flex-direction: column;
+  background-color: white;
 }
 
 #main-container {
@@ -24,7 +23,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 99%;
-  height: 97%;
+  height: 100%;
   grid-area: B;
   background-color: rgb(208, 255, 208);
 }
@@ -60,6 +59,7 @@ body {
   height: 100%;
   width: 90%;
   margin-left: 5px;
+  margin-top: 20px;
   grid-area: D;
   display: flex;
   flex-direction: column;
@@ -101,6 +101,7 @@ body {
   margin: 0;
   background-color: hsl(239, 63%, 81%);
   overflow-y: scroll;
+  display: none;
 }
 
 textarea {
