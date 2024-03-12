@@ -134,3 +134,22 @@ textarea {
   max-height: 250px;
   overflow-y: auto;
 }
+
+@media (max-width: 600px){
+  body {
+      grid-template-areas: "B" "D" "C";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+  }
+
+  #current {
+    width: 100%;
+  }
+  #results {
+    width: 99%;
+  }
+
+  #table-container {
+    max-height: 70vh;
+  }
+}
