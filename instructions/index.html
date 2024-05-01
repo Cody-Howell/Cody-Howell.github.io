@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Instructions</title>
+
+    <link href="./index.css" rel="stylesheet"/>
+
+    <!--The React JS libraries -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!--Initially, we will use the babel run-time library to convert JSX in the browser -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>   
+    
+    
+<script type="text/babel">
+
+/*---------------------------------------------------------------------------*/
+class App extends React.Component {
+    constructor(props){
+      super(props);
+      this.state ={
+        finalString: "Test1 Test2"
+      }
+    }
+
+    updateFinalInput = () => {
+      let value = document.querySelector('#finalInput').value;
+      this.setState({finalString: value});
+    }
+
+    render() {
+        return (
+            <main className="container">
+              <h1>Learning Class React</h1>
+              <p>This page will introduce you to Class React, a JavaScript framework that allows you to define 
+                components, interact with the state of the system, and build one page apps. <br/> This page in particular
+                will start with a one-page HTML setup that you can run yourself and start experimenting with React! By the end, you'll learn: </p>
+              <ul>
+                <li>How to run React in your browser</li>
+                <li>How to use the constructor</li>
+                <li>How to use State</li>
+                <li>How to use booleans for conditional rendering</li>
+                <li>How to create a second class and call it (with props)</li>
+                <li>How to use the componentDidMount() lifecycle method</li>
+              </ul>
+              <p>I'll walk you through the setup of the page, so you can start seeing and editing React code, and
+                introduce a couple of challenges to do (with an answer key!) to walk through some of the different things that React can do. 
+                By the end, if you do all the exercises, you should be able to interact with state and components, render lists of text with a
+                unique or complicated HTML/state, and be comfortable with some HTML events, such as OnClick.  
+                </p>
+              <h2>Setup</h2>
+              <p>You will need: 
+                <ul>
+                  <li>A code editor</li>
+                  <li>A browser to run it in</li>
+                  <li>Cursory knowledge of HTML and JavaScript</li>
+                  <li>Around half an hour of free time</li>
+                </ul>
+              </p>
+              <p>For the code editor, I would recommend Visual Studio Code. To run it, you can either download a LiveServer plugin, 
+                or you can just open the file that you create in your file explorer and it will run just the same. </p>
+              <h3>Starting Code</h3>
+              <p>This project starts with a handy page of starter code. Copy this into your editor of choice, and ensure that you can see
+                an &lt;h1&gt; element. </p>
+              <CodeViewer codeLines={[
+                `&lt;html&gt;`,
+                `  &lt;head&gt;`,
+                `    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;`,
+                `    &lt;title&gt;React Test&lt;/title&gt;`,
+                `    &lt;script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"&gt;&lt;/script&gt;`,
+                `    &lt;script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"&gt;&lt;/script&gt;`,
+                `    &lt;script src="https://unpkg.com/babel-standalone@6/babel.min.js"&gt;&lt;/script&gt;   `,
+                `&lt;script type="text/babel"&gt;`,
+                `class App extends React.Component {`,
+                `    render() {`,
+                `        return (`,
+                `            &lt;main className="container"&gt;`,
+                `              &lt;h1&gt;Lorem Ipsum&lt;/h1&gt;`,
+                `            &lt;/main&gt;   `,
+                `        );`,
+                `    }`,
+                `}`,
+                `ReactDOM.render(&lt;App /&gt;, document.querySelector('#react-container')); `,
+                ``,
+                `&lt;/script&gt;`,
+                `&lt;/head&gt;`,
+                `&lt;body&gt;`,
+                `  &lt;div id='react-container' &gt;&lt;/div&gt;`,
+                `&lt;/body&gt;`,
+                `&lt;/html&gt;`,
+              ]}/>
+              <p>A few things to note. In &lt;head&gt;, there are 3 script calls to a link that handles the parsing of JSX (the language
+                you'll be writing in) into vanilla JS. <br/> I didn't include a reference to a stylesheet if you wanted to style what you're making, 
+                but you would put that in the head too. <br/> Finally, everything you'll be writing will be within the final &lt;script type="text/babel"&gt; element, which will hopefully
+                be a pretty small section to work in. </p>
+              <p>Let's get started with Hello, World!</p>
+
+              <h2>Hello, World!</h2>
+              <p>If you haven't already, import the code above into an editor and play around with it. Any HTML you write within 
+                the return() brackets of the render method will be displayed plainly (we'll make it more complex later). </p>
+              <p>Here, I'll also introduce the answer key I'll be using. Double-click on the element below to see what I wrote 
+                for this challenge. </p>
+              <AnswerKey answerTitle="Hello, World!" answerCode={<CodeViewer codeLines={[
+                `return (`,
+                `  &lt;main className="container"&gt;`,
+                `    &lt;h1&gt;Lorem Title&lt;/h1&gt;`,
+                `    &lt;p&gt;This is a paragraph. Hello!&lt;/h1&gt;`,
+                `  &lt;/main&gt;   `,
+                `)`
+              ]} />}/>
+
+
+              <h2>Constructor, State, and Functions</h2>
+              <p>The next part of the class we'll be introducing is the Constructor. It isn't required for props passing (covered later)
+                but it is required to hold the state. <br/> The state is the local values that everything in the class reads from and writes to.
+                It is defined as an object, and it can hold one thing (such as a string or bool) or a collection of objects, nested like normal JSON. 
+                </p>
+              <p>Above the render method in your class, copy in the following lines.</p>
+              <CodeViewer codeLines={[
+                `constructor(props) {`,
+                `  super(props);`,
+                `  this.state = {`, 
+                `  }`,
+                `}`
+              ]}/>
+              <p>Inside the brackets for the state is where you define your objects. For your first assignment, let's make a simple counter!</p>
+              <h4>Simple Counter</h4>
+              <p>First, let's put something into state. Define a property called count and initialize it with the number 0. </p>
+              <AnswerKey answerTitle="Filling State" answerCode={<CodeViewer codeLines={[
+                `  this.state = {`, 
+                `    count: 0`,
+                `  }`,
+              ]} />}/>
+              <p>After that, we're going to display it in our HTML. This is pretty straitforward; we'll just call the state and it will return the value
+                of the object. </p>
+              <CodeViewer codeLines={[
+                `&lt;p&gt;{this.state.count}&lt;/p&gt;`
+              ]} />
+              <p>Now, we will do two things. First, we need to call a function to increment the state every time it's called. Second, we need to adjust 
+                this element so that whenever we click it, it calls that function. <br/> First, let's adjust this line to call the function. </p>
+              <CodeViewer codeLines={[
+                `&lt;p onClick={this.incrementCounter}&gt;Count: {this.state.count}&lt;/p&gt;`
+              ]} />
+              <p>Now, write a function inside the class called incrementCounter. This will need to be defined as it is below, with the 
+                name, an equals sign, then a lambda expression of the function. If you try to write it like {`function() {...}`}, then it will
+                be called as the code reads through the class. Those types of definitions should be saved for lifecycle methods (explained later). 
+                <br/> So, for now, just emulate this line. </p>
+              <CodeViewer codeLines={[
+                `incrementCounter = () => {....}`
+              ]} />
+              <p>Now that we have our function defined, we need to get the value of the state, increment it, and set it back. I'll leave the first two for you
+                <i> (hint: look at the call in our HTML)</i>, but for State, you can't modify it directly; you have to pull out the value, 
+                adjust it, and set it back. Here's the line of code that does that; notice the setState method call takes in an object, 
+                and that object must have the same name as a value in your state to work. Assuming your variable was newCount: </p>
+              <CodeViewer codeLines={[
+                `this.setState({count: newCount});`
+              ]} />
+              <p>Now, if you try to click on your element, it should increment! An example counter is placed just below (the text Count: #), and the answer for it
+                below that. </p>
+              <Counter />
+              <AnswerKey answerTitle="Counter" answerCode={<CodeViewer codeLines={[
+                `class Counter extends React.Component {`,
+                `  constructor(props){`,
+                `    super(props);`,
+                `    this.state = {`,
+                `      count: 0`,
+                `    }`,
+                `  }`,
+                `  incrementCounter = () => {`,
+                `    let newCount = this.state.count;`,
+                `    newCount++;`,
+                `    this.setState({count: newCount});`,
+                `  }`,
+                `  render() {`,
+                `    return(`,
+                `      &lt;div&gt;`,
+                `        &lt;p onClick={this.incrementCounter}&gt;Count: {this.state.count}&lt;/p&gt;`,
+                `      &lt;/div&gt;`,
+                `    )`,
+                `  }`,
+                `}`
+              ]} />}/>
+
+              <h3>Conditional Rendering</h3>
+              <p>Congrats! Working with strings and numbers in the state are similar to what you just did. Now, we'll move to booleans; they can be adjusted
+                exactly like you did above. <br/> It's now time to introduce Conditional Rendering; for anything that returns a bool (a comparator statement such as x &gt; 5)
+                or our direct state boolean can be used to condtionally render HTML elements (as I've been using it to create Answer elements). 
+                It is put directly into the return() function where the rest of our HTML lives.  </p>
+              <p>The syntax for this is written below. The braces define it as a section of code, and if the condition returns true (you can chain
+                it like any conditional statement with && and ||), it will render the function. </p>
+              <CodeViewer codeLines={[
+                `{<i>conditional section here</i> && (&lt;div&gt;Conditional Elements&lt;/div&gt;)}`
+              ]} />
+              <p>Write some code (looking at the answer for Counter if you need) and make it so that when you click on it, it displays some bit of text. 
+                For an example, see the Answers! The answer below is the actual code that renders itself (meta!).</p>
+              <AnswerKey answerTitle="Conditional Rendering" answerCode={<CodeViewer codeLines={[
+                `class AnswerKey extends React.Component {`,
+                `  constructor(props){`,
+                `    super(props);`,
+                `    this.state = {`,
+                `      isOpen: false`,
+                `    }`,
+                `  }`,
+                `  toggleOnClick = () => {`,
+                `    this.setState({isOpen: !this.state.isOpen});`,
+                `  }`,
+                `  render() {`,
+                `    return(`,
+                `      &lt;div onDoubleClick={this.toggleOnClick} className="answerComponent"&gt;`,
+                `        &lt;h4&gt;Answer for: {this.props.answerTitle}&lt;/h4&gt;`,
+                `        {this.state.isOpen && (this.props.answerCode)}`,
+                `      &lt;/div&gt;`,
+                `    )`,
+                `  }`,
+                `}`
+              ]} />}/>
+            
+
+              <h2>Second Class and Props Passing</h2>
+              <p>Alright; we've been dancing around props and lifecycle methods. If you didn't look at the answer for the previous challenge, 
+                please do; it shows an example of using props (calling this.props instead of this.state). </p>
+              <h4>Props</h4>
+              <p>Props are similar to State, in that a parent state can pass through objects to the current state to be read without changing it. 
+                This means if one component has an array of objects it wants rendered, it can pass them to a lower component that deals with all 
+                the small parts of the HTML for it (and handling the state of a possible conditional render) without the parent having to keep track
+                of however many times it does this. It just calls the class and passes through what it wants rendered. </p>
+              <h4>Second Class</h4>
+              <p>Before we get to that, let's start with writing a second class. Go back to the original definition if you need; create a Render method 
+                in this new class and have it display some HTML so you know that it worked. Call it as below, from your App class: </p>
+              <CodeViewer codeLines={[
+                `&lt;ClassName /&gt;`
+              ]} />
+              <p>You should now have a second class that renders independently of the App. This is great! You can call it as many times as you want, allowing 
+                you to put the same text in many places without having to write it each time, and you only have to adjust it in one place!</p>
+              <p>Now, we will get to props. Let's just work on a string; it will work with any object but a simple value is easier to work with. <br/> 
+                In your second class, display a value called inputString from your props value. It should be this line: </p>
+              <CodeViewer codeLines={[
+                `&lt;p&gt;{this.props.inputString}&lt;/p&gt;`
+              ]} />
+              <p>Now, when you call your class, add in this custom string: </p>
+              <CodeViewer codeLines={[
+                `&lt;ClassName inputString="Lorem Ipsum"/&gt;`
+              ]} />
+              <p>Your component should now render the string you passed in through the props! There is one more thing to cover... </p>
+
+              <h3>Lifecycle Methods</h3>
+              <p>Lifecycle methods are React-defined methods that it calls on its own. There are methods for when a component is made, updated, 
+                and when it dies (and more). We will focus on when a component is first made; the function called is componentDidMount(). <br/> 
+                Before we get into the challenge, I want to talk about rendering from an array. You can generate an array, fill it with bits of 
+                HTML, and call the whole array to be rendered, which the compiler will just convert into the list of HTML elements as if they
+                were written next to each other. Take the following two snippets: </p>
+              <CodeViewer codeLines={[
+                `for (let i = 0; i < inputArray.length; i++){`,
+                `  displayArray.push(&lt;div&gt;{inputArray[i]}&lt;/div&gt;)`,
+                `}`
+              ]} />
+              <CodeViewer codeLines={[
+                `&lt;div&gt;{displayArray}&lt;/div&gt;`
+              ]} />
+              <p>This will display all the elements of the array in one global div and each in their individual divs. </p>
+              <p>Your final challenge is to take an input string, and in the mounting function, split it via spaces (or commas, if you prefer), and render each 
+                element on its own line. Remember that the function to call is componentDidMount() {`{...}`}, in exactly that format. Below I will have a small input to play 
+                with that will do what I'm asking for. </p> 
+              <input type="text" name="finalInput" id="finalInput" onChange={this.updateFinalInput}/>
+              <InputDeconstructor input={this.state.finalString} />
+              <br/>
+              <AnswerKey answerTitle="Lifecycle Method" answerCode={<CodeViewer codeLines={[
+                `&lt;InputDeconstructor input="Test1 Test2" /&gt; // Call from App Class`,
+                `class InputDeconstructor extends React.Component {`,
+                `  constructor(props){`,
+                `    super(props);`,
+                `    this.state = {`,
+                `      strings: []`,
+                `    }`,
+                `  }`,
+                ``,
+                `  componentDidMount() {`,
+                `    let input = this.props.input;`,
+                `    let array = input.split(' '); // Split on spaces`,
+                `    this.setState({strings: array});`,
+                `  }`,
+                ``,
+                `  render() {`,
+                `    let displayArray = [];`,
+                `    for (let i = 0; i < this.state.strings.length; i++){`,
+                `      displayArray.push(&lt;div&gt;{i+1}: {this.state.strings[i]}&lt;/div&gt;);`,
+                `    }`,
+                `    return(`,
+                `      &lt;div&gt;`,
+                `        {displayArray}`,
+                `      &lt;/div&gt;`,
+                `    );`,
+                `  }`,
+                `}`
+              ]} />}/>
+
+
+              <h2>More To Cover</h2>
+              <p>There is a lot more to cover when it comes to everything that React can do; simple things you can try now is handling inputs
+                and buttons with vanilla JS, make more complex states, and much more! <br/> Thanks for joining me!</p>
+            </main>                
+        );
+    }
+}
+
+class CodeViewer extends React.Component {
+  render(){
+    let codeDisplay = [];
+    let codeLines = this.props.codeLines;
+    for (let i = 0; i < codeLines.length; i++){
+      codeDisplay.push(<div key={i} className="code-line" dangerouslySetInnerHTML={{ __html:  codeLines[i] }} />);
+    }
+    return(
+      <div>
+        <pre class="code-interface">
+          <code>
+            {codeDisplay}
+          </code>
+        </pre>
+      </div>
+    )
+  }
+}
+
+class AnswerKey extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isOpen: false
+    }
+  }
+
+  toggleOnClick = () => {
+    this.setState({isOpen: !this.state.isOpen});
+  }
+
+  render() {
+    return(
+      <div onDoubleClick={this.toggleOnClick} className="answerComponent">
+        <h4>Answer for: {this.props.answerTitle}</h4>
+        {this.state.isOpen && (this.props.answerCode)}
+      </div>
+    )
+  }
+}
+
+class Counter extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      count: 0
+    }
+  }
+
+  incrementCounter = () => {
+    let number = this.state.count;
+    number++;
+    this.setState({count: number});
+  }
+
+  render() {
+    return(
+      <div>
+        <p onClick={this.incrementCounter}>Count: {this.state.count}</p>
+      </div>
+    )
+  }
+}
+
+class InputDeconstructor extends React.Component {
+  render() {
+    let inputArray = this.props.input.split(' ');
+    let displayArray = [];
+    for (let i = 0; i < inputArray.length; i++){
+      displayArray.push(<div>{i+1}: {inputArray[i]}</div>);
+    }
+    return(
+      <div>
+        {displayArray}
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.querySelector('#react-container')); 
+
+</script>
+</head>
+<body>
+  <div id='react-container' ></div>
+</body>
+</html>
