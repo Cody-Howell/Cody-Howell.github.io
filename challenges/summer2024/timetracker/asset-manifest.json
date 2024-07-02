@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.b5911103.css",
-    "main.js": "/static/js/main.cf4a1a05.js",
-    "service-worker.js": "/service-worker.js",
-    "index.html": "/index.html",
-    "main.b5911103.css.map": "/static/css/main.b5911103.css.map",
-    "main.cf4a1a05.js.map": "/static/js/main.cf4a1a05.js.map"
+    "main.css": "/challenges/summer2024/timetracker/static/css/main.0b124f39.css",
+    "main.js": "/challenges/summer2024/timetracker/static/js/main.a1d6aae0.js",
+    "service-worker.js": "/challenges/summer2024/timetracker/service-worker.js",
+    "index.html": "/challenges/summer2024/timetracker/index.html",
+    "main.0b124f39.css.map": "/challenges/summer2024/timetracker/static/css/main.0b124f39.css.map",
+    "main.a1d6aae0.js.map": "/challenges/summer2024/timetracker/static/js/main.a1d6aae0.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5911103.css",
-    "static/js/main.cf4a1a05.js"
+    "static/css/main.0b124f39.css",
+    "static/js/main.a1d6aae0.js"
   ]
 }

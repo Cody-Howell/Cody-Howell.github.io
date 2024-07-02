@@ -1,6 +1,6 @@
 {
-  "name": "Life Time Tracker",
   "short_name": "LTT",
+  "name": "Life Time Tracker",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
