@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.0b124f39.css","mappings":"AAEA,UAEE,QAAS,CADT,SCAF,CDIA,GACE,YCDF","sources":["scsscomp/App.scss","scsscomp/App.css"],"sourcesContent":["\r\n\r\nbody, html {\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n\r\nh1 {\r\n  color: purple;\r\n}","body, html {\n  padding: 0;\n  margin: 0;\n}\n\nh1 {\n  color: purple;\n}"],"names":[],"sourceRoot":""}
